@@ -2,8 +2,7 @@ import requests
 import pandas as pd
 from bs4 import BeautifulSoup
 import json
-import time
-import random
+from operator import itemgetter
 
 
 class LegalTerm:
@@ -15,17 +14,18 @@ class LegalTerm:
         self.term_root = term_root
 
     def to_str(self):
-        return '(' + '\n\tid: ' + str(self.id) + '\n\tleg_term: ' + str(self.leg_term) + ',\n\tdesc: ' + str(self.desc) + ',\n\tpos_tag: ' + str(self.pos_tag) + ',\n\tterm_root: ' + str(self.term_root) + '\n)'
+        return '(' + '\n\tid: ' + str(self.id) + ',\n\tleg_term: ' + str(self.leg_term) + ',\n\tdesc: ' + str(self.desc) + ',\n\tpos_tag: ' + str(self.pos_tag) + ',\n\tterm_root: ' + str(self.term_root) + '\n)'
 
 
 class Coocur:
-    def __init__(self, id, doc_id, term_id):
+    def __init__(self, id, doc_id, term_id, line_id):
         self.id = id
         self.doc_id = doc_id
         self.term_id = term_id
+        self.line_id = line_id
 
     def to_str(self):
-        return '(' + '\n\tid: ' + str(self.id) + '\n\tdoc_id: ' + str(self.doc_id) + ',\n\tterm_id: ' + str(self.term_id) + '\n)'
+        return '(' + '\n\tid: ' + str(self.id) + ',\n\tdoc_id: ' + str(self.doc_id) + ',\n\tterm_id: ' + str(self.term_id) + ',\n\tline_id: ' + str(self.line_id) + '\n)'
 
 
 class DicDoc:
@@ -35,10 +35,10 @@ class DicDoc:
         self.doc_desc = doc_desc
 
     def to_str(self):
-        return '(' + '\n\tdoc_id: ' + str(self.doc_id) + '\n\tdoc_title: ' + str(self.doc_title) + '\n\tdoc_desc: ' + str(self.doc_desc) + '\n)'
+        return '(' + '\n\tdoc_id: ' + str(self.doc_id) + ',\n\tdoc_title: ' + str(self.doc_title) + ',\n\tdoc_desc: ' + str(self.doc_desc) + '\n)'
 
 
-class NewTrieNode:
+class MweTrieNode:
     def __init__(self, id, word):
         self.id = id
         self.word = word
@@ -50,9 +50,17 @@ class NewTrieNode:
         return '(' + '\n\tid: ' + str(self.id) + '\n\tword: ' + self.word + ',\n\tstate: ' + str(self.state) + ',\n\tdesc: ' + self.desc + ',\n\tchildren: ' + str(len(self.children)) + '\n)'
 
 
-class NewTrie(object):
+class WordTrieNode:
+    def __init__(self, id, char):
+        self.id = id
+        self.char = char
+        self.counter = 0
+        self.children = {}
+
+
+class MweTrie(object):
     def __init__(self):
-        self.root = NewTrieNode([-1], "")
+        self.root = MweTrieNode([-1], "")
 
     def insert(self, multword, id):
         node = self.root
@@ -67,7 +75,7 @@ class NewTrie(object):
         else:
             for wrd in multword.split(" "):
                 if wrd not in node.children:
-                    node.children[wrd] = NewTrieNode([-2], wrd)
+                    node.children[wrd] = MweTrieNode([-2], wrd)
                 node = node.children[wrd]
             node.id = [id]
             node.state = 2
@@ -131,6 +139,41 @@ class NewTrie(object):
                 node.children[word], state, prefix + ' ' + (word + "-" + str(node.children[word].id)))
 
 
+class WordTrie(object):
+    def __init__(self):
+        self.root = WordTrieNode(-1, "")
+
+    def insert(self, word, id):
+        node = self.root
+        for char in word:
+            if char in node.children:
+                node = node.children[char]
+            else:
+                new_node = WordTrieNode(0, char)
+                node.children[char] = new_node
+                node = new_node
+        node.id = id
+        node.counter += 1
+
+    def dfs(self, node, prefix):
+        if node.id != -1 and node.id != 0:
+            self.output.append((prefix + node.char, node.id, node.counter))
+
+        for child in node.children.values():
+            self.dfs(child, prefix + node.char)
+
+    def query(self, x):
+        self.output = []
+        node = self.root
+        for char in x:
+            if char in node.children:
+                node = node.children[char]
+            else:
+                return []
+        self.dfs(node, x[:-1])
+        return sorted(self.output, key=lambda x: x[1], reverse=True)
+
+
 def read_tsv(tsv_path):
     df = pd.read_csv(tsv_path, sep='\t')
     df = df.iloc[::-1]
@@ -138,13 +181,19 @@ def read_tsv(tsv_path):
 
 
 def create_trie(data_path):
-    new_trie = NewTrie()
+    mwe_trie = MweTrie()
+    word_trie = WordTrie()
     df = read_tsv(data_path)
-    for row in df.iterrows():
-        new_trie.insert(row[1]['leg_term'].replace(
-            ' ' + row[1]['term_root'], ''), row[1]['id'])
-    # new_trie.print_trie(1)
-    return new_trie
+    for index, row in df.iterrows():
+        if not row.empty:
+            if len(row['leg_term'].split(' ')) > 1:
+                mwe_trie.insert(row['leg_term'].replace(
+                    ' ' + row['term_root'], ''), row['id'])
+            else:
+                word_trie.insert(row['leg_term'].lower().strip(), row['id'])
+        # mwe_trie.print_trie(1)
+        # mwe_trie.print_trie(2)
+    return [mwe_trie, word_trie]
 
 
 def convert_dict(a_list):
@@ -171,10 +220,13 @@ def is_match(slt, idx, con_wrd):
 
 
 # def search_mwe(trie, df, txt, base_url='http://10.0.70.62:8080/nlp-web-demo/process?text='):
-def search_mwe(trie, df, txt, base_url='http://172.104.34.197/nlp-web-demo/process?text='):
+def search_mwe(mwe_trie, word_trie, df, txt, base_url='http://172.104.34.197/nlp-web-demo/process?text='):
+    found_mwe = []
+    mwe_arr_index = []
     res = requests.get(base_url+txt)
     if res.status_code != 200:
         print(res.status_code)
+        return found_mwe
     soup = BeautifulSoup(res.text, "html.parser")
     res_arr = json.loads(soup.text)
 
@@ -183,9 +235,8 @@ def search_mwe(trie, df, txt, base_url='http://172.104.34.197/nlp-web-demo/proce
         for word in sentence:
             word_list.append(word)
 
-    found_mwe = []
     con_wrd = word_list.copy()
-    mwe_node_list = trie.search(list(map(lambda x: x['word'], con_wrd)))
+    mwe_node_list = mwe_trie.search(list(map(lambda x: x['word'], con_wrd)))
     for mwe_node in mwe_node_list:
         for mwe_id in mwe_node['id']:
             row = df.loc[df['id'] == mwe_id].values.tolist()[0]
@@ -201,6 +252,8 @@ def search_mwe(trie, df, txt, base_url='http://172.104.34.197/nlp-web-demo/proce
                     con_wrd[mwe_node['idx'] + 1]['posTag'] = posTag
                     found_mwe.append({'id': row[1], 'leg_term': row[2].lower(), 'desc': row[3].lower(
                     ), 'pos_tag': row[4].lower(), 'term_root': row[5].lower()})
+                    mwe_arr_index.append(
+                        {'index': mwe_node['idx'] + 1, 'length': len(slt)})
                 else:
                     wrd_roots = con_wrd[mwe_node['idx'] +
                                         1]['lemma'].replace('[', '').replace(']', '').split(', ')
@@ -211,8 +264,41 @@ def search_mwe(trie, df, txt, base_url='http://172.104.34.197/nlp-web-demo/proce
                             con_wrd[mwe_node['idx'] + 1]['posTag'] = posTag
                             found_mwe.append({'id': row[1], 'leg_term': row[2].lower(), 'desc': row[3].lower(
                             ), 'pos_tag': row[4].lower(), 'term_root': row[5].lower()})
+                            mwe_arr_index.append(
+                                {'index': mwe_node['idx'] + 1, 'length': len(slt)})
                             break
-    return found_mwe
+
+    pure_con_wrd = []
+    for i, cw in enumerate(con_wrd):
+        exist = 0
+        for mwe_index in mwe_arr_index:
+            if i in range(mwe_index['index'] - mwe_index['length'], mwe_index['index']):
+                exist = 1
+        if exist == 0:
+            pure_con_wrd.append(cw)
+
+    for cw in pure_con_wrd:
+        if cw['posTag'] != 'NM' and len(word_trie.query(cw['word'])) > 0:
+            max_len_wrd = sorted(word_trie.query(
+                cw['word']), key=itemgetter(2), reverse=True)[0]
+            row = df.loc[df['id'] == max_len_wrd[1]].values.tolist()[0]
+            ner = row[2].lower()
+            undes = row[5].lower()
+            posTag = row[4].upper()
+            if cw['word'].lower() == undes:
+                cw['posTag'] = posTag
+                found_mwe.append({'id': row[1], 'leg_term': row[2].lower(), 'desc': row[3].lower(
+                ), 'pos_tag': row[4].lower(), 'term_root': row[5].lower()})
+            else:
+                wrd_roots = cw['lemma'].replace(
+                    '[', '').replace(']', '').split(', ')
+                for wrd_root in wrd_roots:
+                    if wrd_root.split('+')[0].lower() == undes:
+                        cw['posTag'] = posTag
+                        found_mwe.append({'id': row[1], 'leg_term': row[2].lower(), 'desc': row[3].lower(
+                        ), 'pos_tag': row[4].lower(), 'term_root': row[5].lower()})
+                        break
+    return {'found_mwe': found_mwe, 'word_list': pure_con_wrd}
 
 
 def str_to_word_lines(text, length):
@@ -226,31 +312,31 @@ def str_to_word_lines(text, length):
     return '\n'.join(lines)
 
 
-def get_ccur_list(txt_df, name, trie, df, init_cur_id, split_len=300):
+def get_ccur_list(txt_df, name, mwe_trie, word_trie, df, init_cur_id, split_len=300):
     coocur_list = []
     rows = txt_df.iterrows()
     cur_id = init_cur_id
-    for row in rows:
+    for index, row in rows:
         law_txt = row[1]['Unnamed: 0'].lower().strip()
         if split_len == 0:
-            found_mwe_list = search_mwe(trie, df, law_txt)
-            mwe_ids = set(list(map(lambda x: x['id'], found_mwe_list)))
+            res = search_mwe(mwe_trie, word_trie, df, law_txt)
+            mwe_ids = set(list(map(lambda x: x['id'], res['found_mwe'])))
             for mwe_id in mwe_ids:
-                ccur = Coocur(cur_id, name, mwe_id)
+                ccur = Coocur(cur_id, name, mwe_id, index)
                 coocur_list.append(ccur)
         else:
-            for len100 in str_to_word_lines(law_txt, split_len).split('\n'):
-                found_mwe_list = search_mwe(trie, df, len100)
-                mwe_ids = set(list(map(lambda x: x['id'], found_mwe_list)))
+            for len300 in str_to_word_lines(law_txt, split_len).split('\n'):
+                res = search_mwe(mwe_trie, word_trie, df, len300)
+                mwe_ids = set(list(map(lambda x: x['id'], res['found_mwe'])))
                 for mwe_id in mwe_ids:
-                    ccur = Coocur(cur_id, name, mwe_id)
+                    ccur = Coocur(cur_id, name, mwe_id, index)
                     coocur_list.append(ccur)
         cur_id += 1
     return coocur_list
 
 
-def search_mwe_impl(f_name, f_path, df, trie, init_cur_id):
-    return get_ccur_list(pd.read_csv(f_path, sep='/t'), f_name, trie, df, init_cur_id)
+def search_mwe_impl(f_name, f_path, df, mwe_trie, word_trie, init_cur_id):
+    return get_ccur_list(pd.read_csv(f_path, sep='/t', engine='python'), f_name, mwe_trie, word_trie, df, init_cur_id)
 
 
 def create_df(data_list, df_path, drop_duplicate_cols=[], sort_vals=[]):
