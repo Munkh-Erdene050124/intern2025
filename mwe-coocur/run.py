@@ -15,4 +15,4 @@ for i in range(1, 845):
 
 if len(ccur_list) > 0:
     functions.create_df(ccur_list, 'C:\\bachelor\\tsv-data\\coocur_v2.tsv', [
-        'doc_id', 'term_id'], ['doc_id'])
+        'doc_id', 'term_id', 'line_id'], ['doc_id'])

@@ -324,6 +324,7 @@ def get_ccur_list(txt_df, name, mwe_trie, word_trie, df, init_cur_id, split_len=
             for mwe_id in mwe_ids:
                 ccur = Coocur(cur_id, name, mwe_id, index)
                 coocur_list.append(ccur)
+                cur_id += 1
         else:
             for len300 in str_to_word_lines(law_txt, split_len).split('\n'):
                 res = search_mwe(mwe_trie, word_trie, df, len300)
@@ -331,7 +332,7 @@ def get_ccur_list(txt_df, name, mwe_trie, word_trie, df, init_cur_id, split_len=
                 for mwe_id in mwe_ids:
                     ccur = Coocur(cur_id, name, mwe_id, index)
                     coocur_list.append(ccur)
-        cur_id += 1
+                    cur_id += 1
     return coocur_list
 
 
