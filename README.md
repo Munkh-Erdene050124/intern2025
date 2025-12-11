@@ -1,2 +1,2 @@
 # bachelor-research-work
-Bachelor Research Work
+Bachelor internship Research Work
