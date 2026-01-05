@@ -1,0 +1,4 @@
+http://localhost:8081/nlp-web-demo/process?text=%22%D1%82%D1%8D%D0%B4%D0%B3%D1%8D%D1%8D%D1%80%20%D1%85%D1%83%D1%83%D0%BB%D0%B8%D0%B9%D0%BD%20%D1%8D%D1%82%D0%B3%D1%8D%D1%8D%D0%B4%D0%B8%D0%B9%D0%B3%22
+
+[[{"word":"\"","lemma":"[\"+Sent]","posTag":"PUN","nameType":"O","stopWordType":"None"},{"word":"тэдгээр","lemma":"[тэдгээр+N+Sg+Nom]","posTag":"PJ","nameType":"O","stopWordType":"PRONOUN"},{"word":"хуулийн","lemma":"[хууль+N+Sg+Gen]","posTag":"NG","nameType":"O","stopWordType":"None"},{"word":"этгээдийг","lemma":"[этгээд+N+Sg+Acc]","posTag":"NC","nameType":"O","stopWordType":"PRONOUN"},{"word":"\"","lemma":"[\"+Sent]","posTag":"PUN","nameType":"O","stopWordType":"None"}]]
+
