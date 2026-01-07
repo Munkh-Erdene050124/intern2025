@@ -46,7 +46,7 @@ def get_lt_list(txt_df, name):
 
 
 def read_tsv(data_path):
-    return pd.read_csv(data_path, sep='/t')
+    return pd.read_csv(data_path, sep='\t')
 
 
 def convert_dict(a_list):

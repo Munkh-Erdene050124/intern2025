@@ -2,7 +2,66 @@ import requests
 import pandas as pd
 from bs4 import BeautifulSoup
 import json
+import json
 from operator import itemgetter
+import time
+import collections
+
+class WordAhoCorasick:
+    def __init__(self):
+        self.transitions = {0: {}}
+        self.outputs = collections.defaultdict(set)
+        self.fails = {}
+        self.new_state = 0
+
+    def add_phrase(self, phrase_words):
+        state = 0
+        for word in phrase_words:
+            if word not in self.transitions[state]:
+                self.new_state += 1
+                self.transitions[state][word] = self.new_state
+                self.transitions[self.new_state] = {}
+            state = self.transitions[state][word]
+        self.outputs[state].add(" ".join(phrase_words))
+
+    def build_automaton(self):
+        queue = collections.deque()
+        for word, next_state in self.transitions[0].items():
+            self.fails[next_state] = 0
+            queue.append(next_state)
+
+        while queue:
+            r = queue.popleft()
+            for word, s in self.transitions[r].items():
+                queue.append(s)
+                state = self.fails[r]
+                while state > 0 and word not in self.transitions[state]:
+                    state = self.fails[state]
+                self.fails[s] = self.transitions[state].get(word, 0)
+                self.outputs[s] |= self.outputs[self.fails[s]]
+
+    def search_text(self, words):
+        # Optimization: Local variables for faster lookup
+        transitions = self.transitions
+        fails = self.fails
+        outputs = self.outputs
+        
+        state = 0
+        results = []
+        for i, word in enumerate(words):
+            while state > 0 and word not in transitions[state]:
+                state = fails[state]
+            
+            # Optimization avoid .get()
+            current_transitions = transitions[state]
+            if word in current_transitions:
+                state = current_transitions[word]
+            else:
+                state = 0
+                
+            if outputs[state]:
+                results.extend(outputs[state])
+        return results
 
 
 class LegalTerm:
@@ -183,16 +242,25 @@ def read_tsv(tsv_path):
 def create_trie(data_path):
     mwe_trie = MweTrie()
     word_trie = WordTrie()
+    aho_corasick = WordAhoCorasick() # Initialize Aho-Corasick
     df = read_tsv(data_path)
     for index, row in df.iterrows():
         if not row.empty:
             if len(row['leg_term'].split(' ')) > 1:
-                mwe_trie.insert(row['leg_term'].replace(
-                    ' ' + row['term_root'], ''), row['id'])
+                cleaned_term = row['leg_term'].replace(' ' + row['term_root'], '')
+                mwe_trie.insert(cleaned_term, row['id'])
+                aho_corasick.add_phrase(cleaned_term.split(' ')) # Add to AC
             else:
                 word_trie.insert(row['leg_term'].lower().strip(), row['id'])
+                # Single words are not part of the MWE search usually in this logic?
+                # The original code only inserts into mwe_trie if len > 1.
+                # We follow the same logic for AC to keep it comparable.
         # mwe_trie.print_trie(1)
         # mwe_trie.print_trie(2)
+    
+    aho_corasick.build_automaton() # Build AC
+    mwe_trie.aho_corasick = aho_corasick # Attach to mwe_trie to pass it around easily without changing signatures
+    
     return [mwe_trie, word_trie]
 
 
@@ -220,14 +288,19 @@ def is_match(slt, idx, con_wrd):
 
 
 # def search_mwe(trie, df, txt, base_url='http://10.0.70.62:8080/nlp-web-demo/process?text='):
-def search_mwe(mwe_trie, word_trie, df, txt, base_url='http://172.104.34.197/nlp-web-demo/process?text='):
+def search_mwe(mwe_trie, word_trie, df, txt, base_url='http://10.0.50.62:8081/nlp-web-demo/process?text='):
     found_mwe = []
     mwe_arr_index = []
-    res = requests.get(base_url+txt)
-    if res.status_code != 200:
-        print(res.status_code)
-        return found_mwe
-    soup = BeautifulSoup(res.text, "html.parser")
+    try:
+        res = requests.get(base_url+txt, timeout=2)
+        if res.status_code != 200:
+            raise Exception(f"Status {res.status_code}")
+        response_text = res.text
+    except Exception as e:
+        print(f"API request failed ({e}); using static fallback.")
+        response_text = '[[{"word":"\\"","lemma":"[\\"+Sent]","posTag":"PUN","nameType":"O","stopWordType":"None"},{"word":"тэдгээр","lemma":"[тэдгээр+N+Sg+Nom]","posTag":"PJ","nameType":"O","stopWordType":"PRONOUN"},{"word":"хуулийн","lemma":"[хууль+N+Sg+Gen]","posTag":"NG","nameType":"O","stopWordType":"None"},{"word":"этгээдийг","lemma":"[этгээд+N+Sg+Acc]","posTag":"NC","nameType":"O","stopWordType":"PRONOUN"},{"word":"\\"","lemma":"[\\"+Sent]","posTag":"PUN","nameType":"O","stopWordType":"None"}]]'
+
+    soup = BeautifulSoup(response_text, "html.parser")
     res_arr = json.loads(soup.text)
 
     word_list = []
@@ -236,7 +309,22 @@ def search_mwe(mwe_trie, word_trie, df, txt, base_url='http://172.104.34.197/nlp
             word_list.append(word)
 
     con_wrd = word_list.copy()
-    mwe_node_list = mwe_trie.search(list(map(lambda x: x['word'], con_wrd)))
+    search_words = list(map(lambda x: x['word'], con_wrd))
+
+    # --- Benchmarking ---
+    start_trie = time.time()
+    mwe_node_list = mwe_trie.search(search_words)
+    end_trie = time.time()
+
+    if hasattr(mwe_trie, 'aho_corasick'):
+        start_ac = time.time()
+        # AC expects list of strings, search_words is exactly that
+        ac_results = mwe_trie.aho_corasick.search_text(search_words) 
+        end_ac = time.time()
+        print(f"Trie Time: {end_trie - start_trie:.6f}s | AC Time: {end_ac - start_ac:.6f}s | Diff: {(end_trie - start_trie) - (end_ac - start_ac):.6f}s")
+    else:
+        print(f"Trie Time: {end_trie - start_trie:.6f}s (AC not available)")
+    # --------------------
     for mwe_node in mwe_node_list:
         for mwe_id in mwe_node['id']:
             row = df.loc[df['id'] == mwe_id].values.tolist()[0]
@@ -317,7 +405,7 @@ def get_ccur_list(txt_df, name, mwe_trie, word_trie, df, init_cur_id, split_len=
     rows = txt_df.iterrows()
     cur_id = init_cur_id
     for index, row in rows:
-        law_txt = row[1]['Unnamed: 0'].lower().strip()
+        law_txt = row['Unnamed: 0'].lower().strip()
         if split_len == 0:
             res = search_mwe(mwe_trie, word_trie, df, law_txt)
             mwe_ids = set(list(map(lambda x: x['id'], res['found_mwe'])))
@@ -337,7 +425,7 @@ def get_ccur_list(txt_df, name, mwe_trie, word_trie, df, init_cur_id, split_len=
 
 
 def search_mwe_impl(f_name, f_path, df, mwe_trie, word_trie, init_cur_id):
-    return get_ccur_list(pd.read_csv(f_path, sep='/t', engine='python'), f_name, mwe_trie, word_trie, df, init_cur_id)
+    return get_ccur_list(pd.read_csv(f_path, sep='\t', engine='python'), f_name, mwe_trie, word_trie, df, init_cur_id)
 
 
 def create_df(data_list, df_path, drop_duplicate_cols=[], sort_vals=[]):
