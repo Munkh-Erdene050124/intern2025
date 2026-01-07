@@ -252,9 +252,6 @@ def create_trie(data_path):
                 aho_corasick.add_phrase(cleaned_term.split(' ')) # Add to AC
             else:
                 word_trie.insert(row['leg_term'].lower().strip(), row['id'])
-                # Single words are not part of the MWE search usually in this logic?
-                # The original code only inserts into mwe_trie if len > 1.
-                # We follow the same logic for AC to keep it comparable.
         # mwe_trie.print_trie(1)
         # mwe_trie.print_trie(2)
     
@@ -311,14 +308,13 @@ def search_mwe(mwe_trie, word_trie, df, txt, base_url='http://10.0.50.62:8081/nl
     con_wrd = word_list.copy()
     search_words = list(map(lambda x: x['word'], con_wrd))
 
-    # --- Benchmarking ---
+    #Benchmarking
     start_trie = time.time()
     mwe_node_list = mwe_trie.search(search_words)
     end_trie = time.time()
 
     if hasattr(mwe_trie, 'aho_corasick'):
         start_ac = time.time()
-        # AC expects list of strings, search_words is exactly that
         ac_results = mwe_trie.aho_corasick.search_text(search_words) 
         end_ac = time.time()
         print(f"Trie Time: {end_trie - start_trie:.6f}s | AC Time: {end_ac - start_ac:.6f}s | Diff: {(end_trie - start_trie) - (end_ac - start_ac):.6f}s")
