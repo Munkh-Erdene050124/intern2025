@@ -212,13 +212,56 @@ def create_automata(df):
 
 def simple_tokenize(text):
     import re
-    # Split by whitespace
     raw_tokens = text.split()
     clean_tokens = []
+
+    # Suffix handling configuration
+    # Тийн ялгалтууд болон олон тооны залгаасууд
+    case_suffixes = [
+        'ын', 'ийн', 'ны', 'ний',
+        'д', 'т',
+        'аас', 'ээс', 'оос', 'өөс',
+        'аар', 'ээр', 'оор', 'өөр',
+        'тай', 'тэй', 'той',
+        'руу', 'рүү',
+        'г', 'ийг', 'ыг'
+    ]
+    plural_suffixes = [
+        'ууд', 'үүд', 'нууд', 'нүүд'
+    ]
+    
+    # Combined and sorted by length (descending) for longest-suffix-first matching
+    all_suffixes = sorted(case_suffixes + plural_suffixes, key=len, reverse=True)
+    
+    # Attempt to get valid terms set from the function attribute if available
+    valid_terms = getattr(simple_tokenize, 'valid_terms', None)
+
     for t in raw_tokens:
-        # Remove punctuation from ends
+        # Clean by removing punctuation from start and end
         clean_t = re.sub(r'^[^\w]+|[^\w]+$', '', t)
-        clean_tokens.append(clean_t)
+        
+        # Normalize tokens by stripping suffixes
+        current = clean_t
+        
+        while True:
+            matched = False
+            for suffix in all_suffixes:
+                if current.endswith(suffix):
+                    # Strip suffix
+                    current = current[:-len(suffix)]
+                    matched = True
+                    # Restart loop to check for further suffixes (plural + case)
+                    break 
+            
+            if not matched:
+                break
+        
+        # If the original and stripped form are both valid, prefer original.
+        if valid_terms and (clean_t in valid_terms) and (current in valid_terms):
+            clean_tokens.append(clean_t)
+        else:
+            clean_tokens.append(current)
+
     return raw_tokens, clean_tokens
 
 def analyze_file(file_path, mwe_trie, word_trie, term_to_id, df):
@@ -251,6 +294,7 @@ def analyze_file(file_path, mwe_trie, word_trie, term_to_id, df):
         total_ac_time += (t3 - t2)
         
         term_map_by_id = df.set_index('id')['leg_term'].to_dict()
+        consumed_indices = set()
 
         for node in mwe_nodes:
             mwe_ids = node['id']
@@ -262,6 +306,11 @@ def analyze_file(file_path, mwe_trie, word_trie, term_to_id, df):
                     
                     term_len = len(term_str.split()) 
                     start_idx = end_idx - term_len + 1
+
+                    # Mark indices as consumed so single-word search skips them
+                    for k in range(start_idx, end_idx + 1):
+                        consumed_indices.add(k)
+
                     word_place = start_idx + 1 # 1-based output
 
                     results.append({
@@ -273,6 +322,8 @@ def analyze_file(file_path, mwe_trie, word_trie, term_to_id, df):
 
         # 3. Single Word Search (WordTrie)
         for idx, token in enumerate(clean_tokens):
+            if idx in consumed_indices:
+                continue
             if not token: continue
             token_lower = token.lower()
             trie_matches = word_trie.query(token_lower)
@@ -294,7 +345,7 @@ def main():
     tsv_path = os.path.join(base_dir, 'tsv-data', 'merge_lt_dict_v3.tsv')
     
     # Input file
-    target_file = 'MNCLW00019.txt' 
+    target_file = 'MNCLW00009.txt' 
     if len(sys.argv) > 1:
         target_file = sys.argv[1]
     
