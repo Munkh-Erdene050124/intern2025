@@ -342,15 +342,15 @@ def analyze_file(file_path, mwe_trie, word_trie, term_to_id, df):
 def main():
     # Configuration
     base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__))) # intern/v2
-    tsv_path = os.path.join(base_dir, 'tsv-data', 'merge_lt_dict_v3.tsv')
+    tsv_path = os.path.join(base_dir, 'tsv-data', 'merge_lt_dict_v5.tsv')
     
     # Input file
-    target_file = 'MNCLW00009.txt' 
+    target_file = 'MNCLW00019.txt' 
     if len(sys.argv) > 1:
         target_file = sys.argv[1]
     
     law_file_path = os.path.join(base_dir, 'law_txt_files', target_file)
-    output_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'output.txt')
+    output_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'output2.txt')
 
     df = read_tsv(tsv_path)
     mwe_trie, word_trie, term_to_id, df = create_automata(df)
