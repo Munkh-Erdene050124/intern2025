@@ -319,6 +319,7 @@ def analyze_file(file_path, mwe_trie, word_trie, term_to_id, df):
                         'word_place': word_place,
                         'type': 'MWE_Trie' 
                     })
+                    print(term_str.split(" ")[-1])
 
         # 3. Single Word Search (WordTrie)
         for idx, token in enumerate(clean_tokens):
@@ -345,7 +346,7 @@ def main():
     tsv_path = os.path.join(base_dir, 'tsv-data', 'merge_lt_dict_v5.tsv')
     
     # Input file
-    target_file = 'MNCLW00019.txt' 
+    target_file = 'MNCLW00243.txt' 
     if len(sys.argv) > 1:
         target_file = sys.argv[1]
     
