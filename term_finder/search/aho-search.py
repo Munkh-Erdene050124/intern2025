@@ -41,41 +41,65 @@ class WordAhoCorasick:
                 self.outputs[s] |= self.outputs[self.fails[s]]
 
     def search_text(self, words, root_func=None):
-        """Search for phrases in a list of words, with optional root-based matching for last words."""
+        """Search for phrases with comprehensive root-based matching."""
         transitions = self.transitions
         fails = self.fails
         outputs = self.outputs
         
         state = 0
         results = []
+        
         for i, word in enumerate(words):
-            # Standard AC transition logic
-            while state > 0 and word not in transitions[state]:
-                state = fails[state]
+            matched_exact = False
+            matched_root = False
+            next_state = state
             
-            # Check for exact match transition
-            if word in transitions[state]:
-                state = transitions[state][word]
-                if outputs[state]:
-                    for term in outputs[state]:
+            # Try exact match first
+            while next_state > 0 and word not in transitions[next_state]:
+                next_state = fails[next_state]
+            
+            if word in transitions[next_state]:
+                next_state = transitions[next_state][word]
+                matched_exact = True
+                if outputs[next_state]:
+                    for term in outputs[next_state]:
                         results.append((term, i))
             else:
-                if root_func:
-                    root_word = root_func(word)
-                    if root_word != word:
-                        # Temporary transition to check for terminal root match
-                        temp_state = state
-                        while temp_state > 0 and root_word not in transitions[temp_state]:
-                            temp_state = fails[temp_state]
+                next_state = 0
+            
+            # Try root-based matching if we have a root function
+            if root_func:
+                root_word = root_func(word)
+                
+                # Only try root matching if it's different from original
+                if root_word != word:
+                    # Try from current state first (for MWE continuation)
+                    temp_state = state
+                    while temp_state > 0 and root_word not in transitions[temp_state]:
+                        temp_state = fails[temp_state]
+                    
+                    if root_word in transitions[temp_state]:
+                        root_next_state = transitions[temp_state][root_word]
+                        if outputs[root_next_state]:
+                            for term in outputs[root_next_state]:
+                                results.append((term, i))
                         
-                        if root_word in transitions[temp_state]:
-                            next_temp = transitions[temp_state][root_word]
-                            if outputs[next_temp]:
-                                for term in outputs[next_temp]:
+                        # If we matched via root and didn't match exact, use root state
+                        if not matched_exact and temp_state == state:
+                            next_state = root_next_state
+                            matched_root = True
+                    
+                    # Also try root matching from state 0 for new pattern starts
+                    if not matched_exact and state == 0 and not matched_root:
+                        if root_word in transitions[0]:
+                            root_state_0 = transitions[0][root_word]
+                            if outputs[root_state_0]:
+                                for term in outputs[root_state_0]:
                                     results.append((term, i))
-                
-                state = 0 # Reset state as per standard AC on total mismatch
-                
+                            next_state = root_state_0
+            
+            state = next_state
+        
         return results
 
 
@@ -122,12 +146,8 @@ def analyze_file(file_path, aho_corasick, variant_to_leg_terms, df):
         line_num = line_idx + 1
         raw_tokens, clean_tokens = simple_tokenize(line)
         
-        # Original tokens for variant extraction
-        words_original = line.split()
-
         # AC Search with timing
         t0 = time.time()
-        # Find all matches, using get_root for last-word matching
         all_matches = aho_corasick.search_text(clean_tokens, root_func=get_root)
         t1 = time.time()
         total_ac_time += (t1 - t0)

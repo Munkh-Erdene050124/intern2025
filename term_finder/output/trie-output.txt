@@ -1,6 +1,6 @@
 File: MNCLW00243.txt
 Search Method: Trie (MWE + Single-Word)
-Total runtime: 0.013355s
+Total runtime: 0.008212s
 Found terms: 228
 
 Term                            Line                  Word Place          
