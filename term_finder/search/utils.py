@@ -15,7 +15,6 @@ def read_tsv(tsv_path):
 
 
 def get_root(word):
-    """Strips Mongolian suffixes from a word to find its root."""
     if not word:
         return ""
     

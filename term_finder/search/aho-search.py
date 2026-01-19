@@ -97,7 +97,6 @@ class WordAhoCorasick:
                                 for term in outputs[root_state_0]:
                                     results.append((term, i))
                             next_state = root_state_0
-            
             state = next_state
         
         return results

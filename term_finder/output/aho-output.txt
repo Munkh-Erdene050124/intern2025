@@ -1,6 +1,6 @@
 File: MNCLW00243.txt
 Search Method: Aho-Corasick
-Total runtime: 0.005484s
+Total runtime: 0.005155s
 Found terms: 227
 
 Term                            Line                  Word Place          
