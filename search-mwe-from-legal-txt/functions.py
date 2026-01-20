@@ -46,7 +46,26 @@ def get_lt_list(txt_df, name):
 
 
 def read_tsv(data_path):
-    return pd.read_csv(data_path, sep='\t')
+    try:
+        df = pd.read_csv(data_path, sep='\t', dtype=str, keep_default_na=False)
+    except pd.errors.ParserError:
+        df = pd.read_csv(
+            data_path,
+            sep='\t',
+            dtype=str,
+            keep_default_na=False,
+            engine='python',
+            on_bad_lines='skip'  # skip malformed lines instead of dying
+        )
+
+    if 'Unnamed: 0' not in df.columns:
+        if df.shape[1] >= 1:
+            df = df.rename(columns={df.columns[0]: 'Unnamed: 0'})
+        else:
+            raise ValueError(f"{data_path} has no columns; cannot extract text.")
+
+    return df
+
 
 
 def convert_dict(a_list):
