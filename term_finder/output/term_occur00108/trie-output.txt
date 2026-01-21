@@ -1,0 +1,13 @@
+File: MNCLW00108.txt
+Search Method: Trie (MWE + Single-Word)
+Total runtime: 0.000375s
+Found terms: 8
+
+Term                            Line                  Word Place          
+
+төрийн ордон                    5                     1                   
+албан татвар                    6, 7, 10              2, 2, 21            
+стандарт                        10                    11                  
+систем                          12                    13                  
+газар                           12                    18                  
+мөрдөгч                         14                    20                  

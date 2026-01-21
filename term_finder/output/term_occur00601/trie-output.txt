@@ -1,0 +1,10 @@
+File: MNCLW00601.txt
+Search Method: Trie (MWE + Single-Word)
+Total runtime: 0.000321s
+Found terms: 4
+
+Term                            Line                  Word Place          
+
+төрийн нууц                     6, 7                  1, 12               
+албаны нууц                     8                     8                   
+мөрдөгч                         8                     18                  

@@ -1,0 +1,10 @@
+File: MNCLW00747.txt
+Search Method: Trie (MWE + Single-Word)
+Total runtime: 0.000374s
+Found terms: 5
+
+Term                            Line                  Word Place          
+
+улсын их хурлын бусад шийдвэрийн төсөл  6, 7                  2, 13               
+журам                           6, 7                  11, 22              
+мөрдөгч                         8                     18                  

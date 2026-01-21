@@ -1,0 +1,9 @@
+File: MNCLW00205.txt
+Search Method: Trie (MWE + Single-Word)
+Total runtime: 0.000277s
+Found terms: 3
+
+Term                            Line                  Word Place          
+
+албан татвар                    6, 8                  6, 22               
+үр                              8                     18                  

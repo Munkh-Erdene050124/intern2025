@@ -1,0 +1,12 @@
+File: MNCLW00756.txt
+Search Method: Aho-Corasick
+Total runtime: 0.000169s
+Found terms: 18
+
+Term                            Line                  Word Place          
+
+цэргийн алба                    7, 8, 9, 10           11, 11, 13, 13      
+тэтгэвэр                        7, 8, 9, 10           14, 14, 16, 16      
+тэтгэмж                         7, 8, 9, 10           15, 15, 17, 17      
+мөрдөгч                         7, 8, 9, 10           23, 23, 30, 30      
+журам                           7, 8                  24, 24              

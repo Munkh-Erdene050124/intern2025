@@ -1,0 +1,15 @@
+File: MNCLW00823.txt
+Search Method: Aho-Corasick
+Total runtime: 0.000442s
+Found terms: 13
+
+Term                            Line                  Word Place          
+
+мөрдөгч                         8, 12, 21, 23         4, 29, 23, 14       
+журам                           8, 12                 5, 42               
+үйлчлэгч                        9                     29                  
+этгээд                          9, 15                 35, 14              
+нэмэгдэл                        9                     40                  
+хүн                             15                    39                  
+шүүгч                           15                    43                  
+шүүх                            15                    43                  

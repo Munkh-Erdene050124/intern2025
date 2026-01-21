@@ -1,0 +1,10 @@
+File: MNCLW00705.txt
+Search Method: Trie (MWE + Single-Word)
+Total runtime: 0.000571s
+Found terms: 7
+
+Term                            Line                  Word Place          
+
+ус                              6, 8, 10              3, 11, 13           
+ашиглалт                        6, 8, 10              7, 15, 17           
+мөрдөгч                         10                    28                  

@@ -1,0 +1,10 @@
+File: MNCLW00049.txt
+Search Method: Trie (MWE + Single-Word)
+Total runtime: 0.000394s
+Found terms: 6
+
+Term                            Line                  Word Place          
+
+хайгуулын тусгай зөвшөөрөл      6, 7, 8               3, 8, 8             
+ашигт малтмал                   6                     1                   
+мөрдөгч                         9, 10                 14, 14              

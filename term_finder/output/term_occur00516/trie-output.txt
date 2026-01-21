@@ -1,0 +1,10 @@
+File: MNCLW00516.txt
+Search Method: Trie (MWE + Single-Word)
+Total runtime: 0.000350s
+Found terms: 3
+
+Term                            Line                  Word Place          
+
+сум                             8                     14                  
+иргэн                           8                     16                  
+мөрдөгч                         8                     28                  

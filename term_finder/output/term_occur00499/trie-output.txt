@@ -1,0 +1,9 @@
+File: MNCLW00499.txt
+Search Method: Trie (MWE + Single-Word)
+Total runtime: 0.000265s
+Found terms: 2
+
+Term                            Line                  Word Place          
+
+хуульч                          8                     6                   
+мөрдөгч                         8                     18                  

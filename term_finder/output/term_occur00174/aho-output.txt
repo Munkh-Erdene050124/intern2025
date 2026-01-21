@@ -1,0 +1,10 @@
+File: MNCLW00174.txt
+Search Method: Aho-Corasick
+Total runtime: 0.000144s
+Found terms: 5
+
+Term                            Line                  Word Place          
+
+төрийн ордон                    5                     1                   
+баяжуулсан хүнс                 9, 10                 5, 5                
+мөрдөгч                         9, 10                 15, 15              

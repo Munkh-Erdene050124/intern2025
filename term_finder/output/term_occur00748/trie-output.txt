@@ -1,0 +1,13 @@
+File: MNCLW00748.txt
+Search Method: Trie (MWE + Single-Word)
+Total runtime: 0.000766s
+Found terms: 14
+
+Term                            Line                  Word Place          
+
+нийгмийн даатгалын сан          7, 8                  11, 11              
+нийгмийн халамж                 7, 8                  22, 22              
+тэтгэвэр                        7, 8                  15, 15              
+тэтгэмж                         7, 8                  16, 16              
+мөрдөгч                         7, 8, 9, 10           31, 31, 14, 14      
+журам                           7, 8                  32, 32              

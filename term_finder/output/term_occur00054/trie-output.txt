@@ -1,0 +1,7 @@
+File: MNCLW00054.txt
+Search Method: Trie (MWE + Single-Word)
+Total runtime: 0.000297s
+Found terms: 0
+
+Term                            Line                  Word Place          
+

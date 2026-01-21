@@ -1,0 +1,13 @@
+File: MNCLW00332.txt
+Search Method: Trie (MWE + Single-Word)
+Total runtime: 0.001681s
+Found terms: 13
+
+Term                            Line                  Word Place          
+
+хүү                             5, 59, 60             2, 2, 2             
+газр                            6, 7                  4, 7                
+аялал жуулчлал                  9, 30                 3, 3                
+хот байгуулалт                  34, 35                2, 2                
+хүн                             52, 53                3, 3                
+харилцаа холбоо                 63, 64                3, 3                

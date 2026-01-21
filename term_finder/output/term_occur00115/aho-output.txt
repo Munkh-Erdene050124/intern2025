@@ -1,0 +1,15 @@
+File: MNCLW00115.txt
+Search Method: Aho-Corasick
+Total runtime: 0.000073s
+Found terms: 10
+
+Term                            Line                  Word Place          
+
+албан татвар                    6, 8                  2, 33               
+авто зам                        8                     14                  
+тоног төхөөрөмж                 8                     30                  
+банк                            8                     5                   
+зээл                            8, 8                  8, 21               
+төсөл                           8                     19                  
+хөрөнгө                         8                     22                  
+зам                             8                     25                  

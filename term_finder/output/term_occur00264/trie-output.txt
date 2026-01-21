@@ -1,0 +1,8 @@
+File: MNCLW00264.txt
+Search Method: Trie (MWE + Single-Word)
+Total runtime: 0.000258s
+Found terms: 1
+
+Term                            Line                  Word Place          
+
+монгол улсын нутаг дэвсгэр      7                     7                   

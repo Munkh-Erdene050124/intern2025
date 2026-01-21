@@ -1,0 +1,9 @@
+File: MNCLW00315.txt
+Search Method: Aho-Corasick
+Total runtime: 0.000198s
+Found terms: 2
+
+Term                            Line                  Word Place          
+
+хүү                             5                     2                   
+газр                            12                    6                   

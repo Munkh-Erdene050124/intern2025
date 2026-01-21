@@ -1,0 +1,11 @@
+File: MNCLW00144.txt
+Search Method: Trie (MWE + Single-Word)
+Total runtime: 0.000353s
+Found terms: 9
+
+Term                            Line                  Word Place          
+
+төрийн ордон                    5                     1                   
+газар                           6, 7, 8               1, 11, 11           
+төлбөр                          6, 7, 8               2, 12, 12           
+мөрдөгч                         9, 10                 14, 14              

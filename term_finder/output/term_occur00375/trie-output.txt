@@ -1,0 +1,9 @@
+File: MNCLW00375.txt
+Search Method: Trie (MWE + Single-Word)
+Total runtime: 0.000295s
+Found terms: 4
+
+Term                            Line                  Word Place          
+
+хүү                             5                     2                   
+монгол улсын хил                6, 7, 8               1, 12, 6            

@@ -1,0 +1,15 @@
+File: MNCLW00171.txt
+Search Method: Aho-Corasick
+Total runtime: 0.000151s
+Found terms: 14
+
+Term                            Line                  Word Place          
+
+мөрдөгч                         6, 8, 14              5, 1, 12            
+журам                           6, 8                  6, 2                
+үйл ажиллагаа                   11                    12                  
+сан                             11, 11, 11            8, 19, 38           
+компани                         11, 11                17, 40              
+байгууллага                     11                    43                  
+зөвшөөрөл                       11                    46                  
+хураагч                         11                    48                  

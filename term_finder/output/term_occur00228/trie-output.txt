@@ -1,0 +1,9 @@
+File: MNCLW00228.txt
+Search Method: Trie (MWE + Single-Word)
+Total runtime: 0.000274s
+Found terms: 3
+
+Term                            Line                  Word Place          
+
+захиргаа                        6, 7                  1, 12               
+мөрдөгч                         8                     17                  

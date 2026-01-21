@@ -1,0 +1,11 @@
+File: MNCLW00339.txt
+Search Method: Aho-Corasick
+Total runtime: 0.000166s
+Found terms: 6
+
+Term                            Line                  Word Place          
+
+хүү                             6, 7                  2, 2                
+цэргийн албан хаагч             8, 9                  7, 17               
+цэргийн алба                    10                    5                   
+цэргийн алб                     10                    5                   

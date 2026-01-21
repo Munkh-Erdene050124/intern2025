@@ -1,0 +1,16 @@
+File: MNCLW00267.txt
+Search Method: Aho-Corasick
+Total runtime: 0.000283s
+Found terms: 19
+
+Term                            Line                  Word Place          
+
+компани                         6, 7, 7, 7            1, 10, 20, 26       
+                                8, 8, 8, 9            12, 20, 23, 14      
+                                9, 10, 10, 11         18, 5, 16, 5        
+мөрдөгч                         6, 11                 5, 16               
+журам                           6                     6                   
+дүрэм                           8                     21                  
+хувьцаа                         9                     15                  
+шийдвэр                         9                     27                  
+хураамж                         10                    21                  

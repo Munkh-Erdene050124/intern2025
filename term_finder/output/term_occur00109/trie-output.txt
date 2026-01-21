@@ -1,0 +1,11 @@
+File: MNCLW00109.txt
+Search Method: Trie (MWE + Single-Word)
+Total runtime: 0.000311s
+Found terms: 6
+
+Term                            Line                  Word Place          
+
+албан татвар                    6, 7                  2, 24               
+эрчим хүч                       7, 7                  5, 21               
+систем                          7                     7                   
+мөрдөгч                         8                     14                  

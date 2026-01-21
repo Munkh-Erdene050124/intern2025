@@ -1,0 +1,8 @@
+File: MNCLW00238.txt
+Search Method: Aho-Corasick
+Total runtime: 0.000128s
+Found terms: 1
+
+Term                            Line                  Word Place          
+
+мөрдөгч                         8                     16                  

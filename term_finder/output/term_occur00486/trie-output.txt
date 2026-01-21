@@ -1,0 +1,10 @@
+File: MNCLW00486.txt
+Search Method: Trie (MWE + Single-Word)
+Total runtime: 0.000315s
+Found terms: 4
+
+Term                            Line                  Word Place          
+
+төлбөр                          6, 7                  7, 17               
+нөөц ашигласны төлбөр           8                     14                  
+мөрдөгч                         8                     25                  

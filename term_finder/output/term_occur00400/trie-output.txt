@@ -1,0 +1,13 @@
+File: MNCLW00400.txt
+Search Method: Trie (MWE + Single-Word)
+Total runtime: 0.000102s
+Found terms: 15
+
+Term                            Line                  Word Place          
+
+хүү                             5                     2                   
+түгээмэл тархацтай ашигт малтмал  6, 7, 7, 8            6, 14, 18, 14       
+                                8                     18                  
+зам                             6, 7, 8               2, 5, 5             
+төсл                            6, 7, 8               3, 6, 6             
+төлбөр                          6, 7, 8               11, 23, 23          

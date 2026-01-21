@@ -1,0 +1,15 @@
+File: MNCLW00012.txt
+Search Method: Trie (MWE + Single-Word)
+Total runtime: 0.000520s
+Found terms: 18
+
+Term                            Line                  Word Place          
+
+төрийн ордон                    5                     1                   
+аж ахуйн нэгж                   6, 7, 8, 9            1, 11, 11, 5        
+                                10                    5                   
+албан татвар                    6, 7, 8, 9            5, 15, 15, 9        
+                                10                    9                   
+орлого                          6, 7, 8, 9            4, 14, 14, 8        
+                                10                    8                   
+мөрдөгч                         9, 10                 21, 21              

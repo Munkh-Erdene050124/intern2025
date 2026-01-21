@@ -1,0 +1,12 @@
+File: MNCLW00280.txt
+Search Method: Aho-Corasick
+Total runtime: 0.000184s
+Found terms: 13
+
+Term                            Line                  Word Place          
+
+эрүүл мэндийг хамгаалах         6, 7, 8               4, 14, 14           
+мал                             6, 7, 8               1, 11, 11           
+сан                             6, 7, 8               3, 13, 13           
+малын генетик нөөц              9, 10                 5, 5                
+мөрдөгч                         9, 10                 16, 16              

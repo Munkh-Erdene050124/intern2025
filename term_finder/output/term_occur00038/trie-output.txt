@@ -1,0 +1,11 @@
+File: MNCLW00038.txt
+Search Method: Trie (MWE + Single-Word)
+Total runtime: 0.000335s
+Found terms: 4
+
+Term                            Line                  Word Place          
+
+төрийн ордон                    5                     1                   
+согтууруулах ундааны эргэлт     8                     5                   
+хяналт тавих                    8                     8                   
+мөрдөгч                         8                     21                  

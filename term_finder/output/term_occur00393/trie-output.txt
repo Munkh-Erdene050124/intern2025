@@ -1,0 +1,12 @@
+File: MNCLW00393.txt
+Search Method: Trie (MWE + Single-Word)
+Total runtime: 0.000114s
+Found terms: 10
+
+Term                            Line                  Word Place          
+
+төрийн ордон                    5                     1                   
+хүү                             5                     4                   
+мөнгө угаах                     6, 7, 11, 13          1, 1, 9, 11         
+терроризмыг санхүүжүүлэх        6, 11, 13             4, 12, 14           
+терроризм                       7                     4                   

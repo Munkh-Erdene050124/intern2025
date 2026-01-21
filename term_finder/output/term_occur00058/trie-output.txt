@@ -1,0 +1,11 @@
+File: MNCLW00058.txt
+Search Method: Trie (MWE + Single-Word)
+Total runtime: 0.000427s
+Found terms: 6
+
+Term                            Line                  Word Place          
+
+ургамал                         6, 7                  2, 12               
+төлбөр                          6, 7                  4, 14               
+нөөц ашигласны төлбөр           8                     15                  
+мөрдөгч                         8                     26                  

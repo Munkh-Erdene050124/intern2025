@@ -1,0 +1,13 @@
+File: MNCLW00456.txt
+Search Method: Aho-Corasick
+Total runtime: 0.000178s
+Found terms: 11
+
+Term                            Line                  Word Place          
+
+албан татвар                    6, 7                  3, 17               
+тоног төхөөрөмж                 7, 8, 9               12, 10, 10          
+ажил                            7                     9                   
+систем                          8, 9                  17, 17              
+газар                           8, 9                  22, 22              
+мөрдөгч                         10                    24                  

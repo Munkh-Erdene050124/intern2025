@@ -1,0 +1,8 @@
+File: MNCLW00388.txt
+Search Method: Trie (MWE + Single-Word)
+Total runtime: 0.000441s
+Found terms: 2
+
+Term                            Line                  Word Place          
+
+хүү                             6, 7                  2, 2                

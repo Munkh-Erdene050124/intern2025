@@ -1,0 +1,9 @@
+File: MNCLW00680.txt
+Search Method: Trie (MWE + Single-Word)
+Total runtime: 0.000346s
+Found terms: 4
+
+Term                            Line                  Word Place          
+
+хог хаягдал                     6, 7, 8               1, 12, 6            
+мөрдөгч                         8                     18                  

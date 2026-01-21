@@ -1,0 +1,13 @@
+File: MNCLW00621.txt
+Search Method: Aho-Corasick
+Total runtime: 0.000130s
+Found terms: 8
+
+Term                            Line                  Word Place          
+
+тэтгэмж                         6, 8, 8               1, 6, 12            
+нийгмийн даатгалын сан          8                     1                   
+нийгмийн халамжийн сан          8                     8                   
+хүн                             8                     14                  
+газар                           8                     28                  
+мөрдөгч                         10                    12                  

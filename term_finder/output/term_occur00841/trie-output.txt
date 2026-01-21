@@ -1,0 +1,11 @@
+File: MNCLW00841.txt
+Search Method: Trie (MWE + Single-Word)
+Total runtime: 0.000560s
+Found terms: 8
+
+Term                            Line                  Word Place          
+
+төрийн ордон                    5                     1                   
+эрчим хүч                       6, 7, 8, 9            1, 11, 11, 5        
+                                10                    5                   
+мөрдөгч                         9, 10                 15, 15              

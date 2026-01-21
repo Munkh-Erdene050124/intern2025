@@ -1,0 +1,9 @@
+File: MNCLW00496.txt
+Search Method: Trie (MWE + Single-Word)
+Total runtime: 0.000590s
+Found terms: 2
+
+Term                            Line                  Word Place          
+
+тэтгэвэр                        6                     9                   
+зарлиг                          14                    13                  

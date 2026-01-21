@@ -1,0 +1,12 @@
+File: MNCLW00820.txt
+Search Method: Trie (MWE + Single-Word)
+Total runtime: 0.000396s
+Found terms: 13
+
+Term                            Line                  Word Place          
+
+төрийн ордон                    5                     1                   
+үйл ажиллагаа                   6, 7, 8               6, 16, 16           
+компани                         6, 7, 8               5, 15, 15           
+газар                           6, 7, 8               16, 26, 26          
+хэлэлцээр                       6, 7, 8               19, 29, 29          

@@ -1,0 +1,11 @@
+File: MNCLW00664.txt
+Search Method: Trie (MWE + Single-Word)
+Total runtime: 0.000391s
+Found terms: 8
+
+Term                            Line                  Word Place          
+
+нөөц ашигласны төлбөр           6, 7, 8               3, 13, 14           
+ус                              6, 7                  1, 11               
+рашаан                          6, 7                  2, 12               
+мөрдөгч                         8                     25                  

@@ -1,0 +1,12 @@
+File: MNCLW00742.txt
+Search Method: Aho-Corasick
+Total runtime: 0.000247s
+Found terms: 13
+
+Term                            Line                  Word Place          
+
+хуулийн этгээдийн улсын бүртгэл  6, 7, 8, 9            1, 11, 11, 5        
+                                10                    5                   
+мөрдөгч                         6, 7, 8, 9            10, 18, 18, 19      
+                                10                    19                  
+журам                           6, 7, 8               11, 19, 19          

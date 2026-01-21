@@ -1,0 +1,11 @@
+File: MNCLW00769.txt
+Search Method: Aho-Corasick
+Total runtime: 0.000175s
+Found terms: 9
+
+Term                            Line                  Word Place          
+
+төрийн ордон                    5                     1                   
+хэмжил                          6, 7, 9, 10           1, 1, 11, 5         
+хангагч                         6, 7, 9               4, 4, 14            
+мөрдөгч                         10                    17                  

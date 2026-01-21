@@ -1,0 +1,12 @@
+File: MNCLW00602.txt
+Search Method: Trie (MWE + Single-Word)
+Total runtime: 0.000453s
+Found terms: 7
+
+Term                            Line                  Word Place          
+
+нийтийн өмч                     6                     4                   
+эд хөрөнгө                      6, 8                  6, 38               
+газар эзэмших                   7, 8                  8, 15               
+архив                           7                     20                  
+мөрдөгч                         9                     18                  

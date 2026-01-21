@@ -1,0 +1,15 @@
+File: MNCLW00753.txt
+Search Method: Trie (MWE + Single-Word)
+Total runtime: 0.000324s
+Found terms: 12
+
+Term                            Line                  Word Place          
+
+мансуурах дон                   7, 8                  12, 6               
+албадан хөдөлмөр                7                     20                  
+этгээд                          7                     15                  
+захиргаа                        7, 8                  16, 9               
+журам                           7, 8                  17, 10              
+эмчлэх                          7, 8                  19, 12              
+хүн                             8                     8                   
+мөрдөгч                         8                     23                  

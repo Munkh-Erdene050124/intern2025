@@ -1,0 +1,13 @@
+File: MNCLW00220.txt
+Search Method: Trie (MWE + Single-Word)
+Total runtime: 0.000598s
+Found terms: 7
+
+Term                            Line                  Word Place          
+
+газар                           6, 7                  2, 7                
+аялал жуулчлал                  13                    3                   
+хот байгуулалт                  16                    4                   
+ажилгүй                         18                    3                   
+эрчим хүч                       19                    3                   
+мөрдөгч                         21                    15                  

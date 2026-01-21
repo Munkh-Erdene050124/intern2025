@@ -1,0 +1,13 @@
+File: MNCLW00172.txt
+Search Method: Aho-Corasick
+Total runtime: 0.000135s
+Found terms: 10
+
+Term                            Line                  Word Place          
+
+мөрдөгч                         6                     5                   
+журам                           6                     6                   
+даатгалын үйл ажиллагаа         7, 8                  9, 9                
+санхүүгийн зохицуулах хороо     7, 8                  15, 15              
+хяналт тавих                    7, 8                  12, 12              
+сан                             7, 8                  20, 20              

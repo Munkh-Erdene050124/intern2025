@@ -1,0 +1,9 @@
+File: MNCLW00026.txt
+Search Method: Trie (MWE + Single-Word)
+Total runtime: 0.000336s
+Found terms: 4
+
+Term                            Line                  Word Place          
+
+амьтан                          6, 7, 8               1, 12, 14           
+мөрдөгч                         8                     25                  

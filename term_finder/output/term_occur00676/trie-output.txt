@@ -1,0 +1,11 @@
+File: MNCLW00676.txt
+Search Method: Trie (MWE + Single-Word)
+Total runtime: 0.000385s
+Found terms: 6
+
+Term                            Line                  Word Place          
+
+төрийн ордон                    5                     1                   
+хөгжлийн бодлого                6, 7, 8               1, 11, 5            
+удирдлага                       8                     9                   
+мөрдөгч                         8                     20                  

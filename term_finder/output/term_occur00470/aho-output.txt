@@ -1,0 +1,13 @@
+File: MNCLW00470.txt
+Search Method: Aho-Corasick
+Total runtime: 0.000124s
+Found terms: 14
+
+Term                            Line                  Word Place          
+
+төрийн ордон                    5                     1                   
+албан татвар                    6, 7, 8               3, 22, 22           
+агаарын бохирдол                7, 8                  5, 5                
+агаарын чанар                   7, 8                  8, 8                
+түлш                            7, 7, 8, 8            14, 19, 14, 19      
+үйлдвэрлэгч                     7, 8                  16, 16              

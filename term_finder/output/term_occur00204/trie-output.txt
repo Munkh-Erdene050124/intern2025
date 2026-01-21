@@ -1,0 +1,12 @@
+File: MNCLW00204.txt
+Search Method: Trie (MWE + Single-Word)
+Total runtime: 0.000350s
+Found terms: 6
+
+Term                            Line                  Word Place          
+
+албан татвар                    6, 8                  8, 50               
+зорчигч                         8                     21                  
+үйлчилгээ                       8                     23                  
+стандарт                        8                     24                  
+хангагч                         8                     26                  

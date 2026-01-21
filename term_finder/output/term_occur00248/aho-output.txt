@@ -1,0 +1,10 @@
+File: MNCLW00248.txt
+Search Method: Aho-Corasick
+Total runtime: 0.000164s
+Found terms: 7
+
+Term                            Line                  Word Place          
+
+иргэний бүртгэл                 6, 7, 8               1, 11, 11           
+иргэний улсын бүртгэл           9, 10                 5, 5                
+мөрдөгч                         9, 10                 18, 18              

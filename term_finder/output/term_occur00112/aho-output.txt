@@ -1,0 +1,10 @@
+File: MNCLW00112.txt
+Search Method: Aho-Corasick
+Total runtime: 0.000117s
+Found terms: 5
+
+Term                            Line                  Word Place          
+
+албан татвар                    6, 7                  2, 24               
+эрчим хүч                       7, 7                  5, 21               
+систем                          7                     7                   

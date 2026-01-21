@@ -1,0 +1,11 @@
+File: MNCLW00051.txt
+Search Method: Trie (MWE + Single-Word)
+Total runtime: 0.000470s
+Found terms: 6
+
+Term                            Line                  Word Place          
+
+аюултай хог хаягдал             6, 7                  1, 11               
+тээвэрлэлт                      6, 7                  7, 17               
+хог хаягдал                     8                     5                   
+мөрдөгч                         8                     15                  

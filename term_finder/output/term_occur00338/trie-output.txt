@@ -1,0 +1,9 @@
+File: MNCLW00338.txt
+Search Method: Trie (MWE + Single-Word)
+Total runtime: 0.000381s
+Found terms: 2
+
+Term                            Line                  Word Place          
+
+хүү                             5                     2                   
+журм                            6                     7                   

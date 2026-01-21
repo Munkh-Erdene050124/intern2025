@@ -1,0 +1,16 @@
+File: MNCLW00233.txt
+Search Method: Aho-Corasick
+Total runtime: 0.000229s
+Found terms: 12
+
+Term                            Line                  Word Place          
+
+төрийн ордон                    5                     1                   
+зөвшөөрөл                       6, 7                  1, 42               
+мөрдөгч                         6, 8, 9               7, 18, 14           
+журам                           6                     8                   
+зураг зүй                       7                     23                  
+хот байгуулалт                  7                     30                  
+газар                           7                     19                  
+геодези                         7                     22                  
+төсөл                           7                     36                  

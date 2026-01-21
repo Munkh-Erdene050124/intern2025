@@ -1,0 +1,12 @@
+File: MNCLW00618.txt
+Search Method: Aho-Corasick
+Total runtime: 0.000193s
+Found terms: 12
+
+Term                            Line                  Word Place          
+
+тэсэрч дэлбэрэх бодис, тэсэлгээний хэрэгслийн эргэлт  6, 7, 8, 9            1, 11, 11, 13       
+                                10                    13                  
+хяналт тавих                    6, 7, 8, 9            7, 17, 17, 19       
+                                10                    19                  
+мөрдөгч                         9, 10                 31, 31              

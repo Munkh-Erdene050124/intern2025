@@ -1,0 +1,10 @@
+File: MNCLW00529.txt
+Search Method: Trie (MWE + Single-Word)
+Total runtime: 0.000288s
+Found terms: 6
+
+Term                            Line                  Word Place          
+
+прокурор                        6, 7, 8               1, 11, 5            
+байгууллага                     6, 7                  2, 12               
+мөрдөгч                         8                     16                  

@@ -1,0 +1,10 @@
+File: MNCLW00380.txt
+Search Method: Trie (MWE + Single-Word)
+Total runtime: 0.000352s
+Found terms: 5
+
+Term                            Line                  Word Place          
+
+хүү                             5                     2                   
+байгууллаг                      6, 7                  4, 14               
+байгууллага                     6, 7                  4, 14               

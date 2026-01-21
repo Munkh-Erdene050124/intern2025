@@ -1,0 +1,11 @@
+File: MNCLW00117.txt
+Search Method: Trie (MWE + Single-Word)
+Total runtime: 0.000291s
+Found terms: 9
+
+Term                            Line                  Word Place          
+
+албан татвар                    6, 7, 8               2, 19, 19           
+үйлдвэрлэл-үйлчилгээний зориулалт  7, 8                  7, 7                
+бүтээгдэхүүн                    7, 8                  6, 6                
+туслагч                         7, 8                  16, 16              

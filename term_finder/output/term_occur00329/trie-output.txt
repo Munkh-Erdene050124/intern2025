@@ -1,0 +1,13 @@
+File: MNCLW00329.txt
+Search Method: Trie (MWE + Single-Word)
+Total runtime: 0.000445s
+Found terms: 16
+
+Term                            Line                  Word Place          
+
+төрийн ордон                    5                     1                   
+хүү                             5                     4                   
+нэгж                            6, 7, 8, 9            6, 6, 17, 11        
+удирдлаг                        6, 7, 8, 9            8, 8, 19, 13        
+удирдлага                       6, 7, 8, 9            8, 8, 19, 13        
+захиргаа                        8, 9                  14, 8               

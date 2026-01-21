@@ -1,0 +1,11 @@
+File: MNCLW00720.txt
+Search Method: Trie (MWE + Single-Word)
+Total runtime: 0.000400s
+Found terms: 7
+
+Term                            Line                  Word Place          
+
+албан татвар                    6, 7                  4, 7                
+хүн                             6, 7                  1, 4                
+орлого                          6, 7                  3, 6                
+мөрдөгч                         9                     15                  

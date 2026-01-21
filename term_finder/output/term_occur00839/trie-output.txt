@@ -1,0 +1,16 @@
+File: MNCLW00839.txt
+Search Method: Trie (MWE + Single-Word)
+Total runtime: 0.000471s
+Found terms: 11
+
+Term                            Line                  Word Place          
+
+төрийн ордон                    5                     1                   
+үйл ажиллагаа                   7                     11                  
+улсын төсөв                     7                     26                  
+улсын  төсөв                    7                     26                  
+зээл                            7                     6                   
+хөрөнгө                         7, 8                  38, 13              
+сан                             7                     40                  
+газар                           7, 8                  49, 31              
+мөрдөгч                         9                     18                  

@@ -1,0 +1,15 @@
+File: MNCLW00469.txt
+Search Method: Trie (MWE + Single-Word)
+Total runtime: 0.000401s
+Found terms: 11
+
+Term                            Line                  Word Place          
+
+албан татвар                    6, 7, 8               3, 23, 5            
+эрчим хүч хэмнэлт               7                     16                  
+агаарын бохирдол                7                     4                   
+агаарын чанар                   7                     7                   
+агаар                           7, 8                  14, 8               
+систем                          8                     17                  
+газар                           8                     24                  
+мөрдөгч                         9                     14                  

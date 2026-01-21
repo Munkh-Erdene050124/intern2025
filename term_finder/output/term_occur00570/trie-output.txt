@@ -1,0 +1,14 @@
+File: MNCLW00570.txt
+Search Method: Trie (MWE + Single-Word)
+Total runtime: 0.000395s
+Found terms: 10
+
+Term                            Line                  Word Place          
+
+мөрдөгч                         6, 9                  10, 14              
+журам                           6                     11                  
+хуулийн этгээдийн улсын бүртгэл  7                     20                  
+хуулийн этгээд                  7, 8                  7, 8                
+мэдээлэл                        7, 8                  12, 13              
+газар                           7                     24                  
+гэрчилгээ                       8                     7                   

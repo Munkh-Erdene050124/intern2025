@@ -1,0 +1,8 @@
+File: MNCLW00030.txt
+Search Method: Trie (MWE + Single-Word)
+Total runtime: 0.000299s
+Found terms: 1
+
+Term                            Line                  Word Place          
+
+мөрдөгч                         8                     17                  

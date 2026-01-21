@@ -1,0 +1,14 @@
+File: MNCLW00258.txt
+Search Method: Aho-Corasick
+Total runtime: 0.000241s
+Found terms: 14
+
+Term                            Line                  Word Place          
+
+төрийн ордон                    5                     1                   
+сан                             6, 7, 7, 8            3, 9, 24, 9         
+                                8                     24                  
+мөрдөгч                         6, 9, 10              10, 23, 22          
+журам                           6                     11                  
+иргэн                           7, 8                  21, 21              
+хүсэлт                          7, 8                  47, 47              

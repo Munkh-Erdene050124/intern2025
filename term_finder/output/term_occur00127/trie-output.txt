@@ -1,0 +1,15 @@
+File: MNCLW00127.txt
+Search Method: Trie (MWE + Single-Word)
+Total runtime: 0.000419s
+Found terms: 12
+
+Term                            Line                  Word Place          
+
+албан татвар                    8, 9, 9, 9            2, 12, 40, 56       
+                                10                    15                  
+мөрдөгч                         8, 10                 8, 30               
+журам                           8                     9                   
+аж ахуйн нэгж                   9                     59                  
+үйлдвэрлэл-үйлчилгээний зориулалт  9                     47                  
+тоног төхөөрөмж                 9                     50                  
+иргэн                           9                     58                  

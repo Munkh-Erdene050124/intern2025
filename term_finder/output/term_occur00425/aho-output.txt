@@ -1,0 +1,12 @@
+File: MNCLW00425.txt
+Search Method: Aho-Corasick
+Total runtime: 0.000152s
+Found terms: 12
+
+Term                            Line                  Word Place          
+
+төрийн ордон                    5                     1                   
+нийгмийн даатгал                6, 7, 8, 8            1, 1, 19, 30        
+торгуул                         6, 7, 8               5, 5, 44            
+алданги                         6, 7, 8               7, 7, 53            
+тайлбар                         8                     48                  

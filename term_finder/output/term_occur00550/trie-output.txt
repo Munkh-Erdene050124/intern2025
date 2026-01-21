@@ -1,0 +1,12 @@
+File: MNCLW00550.txt
+Search Method: Trie (MWE + Single-Word)
+Total runtime: 0.000696s
+Found terms: 12
+
+Term                            Line                  Word Place          
+
+тохирлын үнэлгээ                6, 7, 8               2, 12, 12           
+стандартчилал                   6, 9, 10              1, 13, 13           
+тохирлын үнэлгээний итгэмжлэл   9, 10                 16, 16              
+техникийн зохицуулалт           9, 10                 14, 14              
+мөрдөгч                         9, 10                 29, 29              

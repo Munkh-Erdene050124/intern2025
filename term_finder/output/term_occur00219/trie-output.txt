@@ -1,0 +1,12 @@
+File: MNCLW00219.txt
+Search Method: Trie (MWE + Single-Word)
+Total runtime: 0.000504s
+Found terms: 6
+
+Term                            Line                  Word Place          
+
+газар                           6, 7                  2, 7                
+батлан хамгаалах                14                    2                   
+хүнс                            19                    2                   
+ажилгүй                         19                    4                   
+мөрдөгч                         21                    15                  

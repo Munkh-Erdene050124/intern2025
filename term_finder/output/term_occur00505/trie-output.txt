@@ -1,0 +1,12 @@
+File: MNCLW00505.txt
+Search Method: Trie (MWE + Single-Word)
+Total runtime: 0.000375s
+Found terms: 7
+
+Term                            Line                  Word Place          
+
+албан татвар                    8, 9, 10              2, 25, 5            
+үйлчилгээ                       9                     12                  
+хуулийн этгээд                  10                    18                  
+газар                           10                    24                  
+мөрдөгч                         11                    15                  

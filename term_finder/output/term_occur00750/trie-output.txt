@@ -1,0 +1,8 @@
+File: MNCLW00750.txt
+Search Method: Trie (MWE + Single-Word)
+Total runtime: 0.000464s
+Found terms: 2
+
+Term                            Line                  Word Place          
+
+мөрдөгч                         12, 13                15, 15              

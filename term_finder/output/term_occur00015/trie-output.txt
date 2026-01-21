@@ -1,0 +1,11 @@
+File: MNCLW00015.txt
+Search Method: Trie (MWE + Single-Word)
+Total runtime: 0.000434s
+Found terms: 5
+
+Term                            Line                  Word Place          
+
+төрийн ордон                    5                     1                   
+аж ахуйн үйл ажиллагааны тусгай зөвшөөрөл  6, 7                  1, 11               
+зөвшөөрөл                       8                     5                   
+мөрдөгч                         8                     16                  

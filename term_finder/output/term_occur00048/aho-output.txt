@@ -1,0 +1,10 @@
+File: MNCLW00048.txt
+Search Method: Aho-Corasick
+Total runtime: 0.000194s
+Found terms: 6
+
+Term                            Line                  Word Place          
+
+хайгуулын тусгай зөвшөөрөл      6, 7, 8               3, 8, 8             
+ашигт малтмал                   6                     1                   
+мөрдөгч                         9, 10                 14, 14              

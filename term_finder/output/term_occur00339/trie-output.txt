@@ -1,0 +1,11 @@
+File: MNCLW00339.txt
+Search Method: Trie (MWE + Single-Word)
+Total runtime: 0.000341s
+Found terms: 6
+
+Term                            Line                  Word Place          
+
+хүү                             6, 7                  2, 2                
+цэргийн албан хаагч             8, 9                  7, 17               
+цэргийн алб                     10                    5                   
+цэргийн алба                    10                    5                   

@@ -1,0 +1,10 @@
+File: MNCLW00673.txt
+Search Method: Aho-Corasick
+Total runtime: 0.000182s
+Found terms: 4
+
+Term                            Line                  Word Place          
+
+хилийн боомт                    8, 9                  1, 12               
+монгол улсын хил                10                    6                   
+мөрдөгч                         10                    19                  

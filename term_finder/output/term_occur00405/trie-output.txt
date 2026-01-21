@@ -1,0 +1,13 @@
+File: MNCLW00405.txt
+Search Method: Trie (MWE + Single-Word)
+Total runtime: 0.000132s
+Found terms: 12
+
+Term                            Line                  Word Place          
+
+хүү                             5                     2                   
+нийгмийн даатгалын сан          6, 7, 8               1, 15, 5            
+тэтгэвэр                        6, 7, 8               5, 19, 9            
+тэтгэмж                         6, 7, 8               6, 20, 10           
+журм                            6                     15                  
+тэтгэвр                         7                     30                  

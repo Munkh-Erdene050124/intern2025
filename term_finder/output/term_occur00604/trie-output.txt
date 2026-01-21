@@ -1,0 +1,18 @@
+File: MNCLW00604.txt
+Search Method: Trie (MWE + Single-Word)
+Total runtime: 0.000508s
+Found terms: 14
+
+Term                            Line                  Word Place          
+
+төрийн ордон                    5                     1                   
+мөрдөгч                         6, 7, 10              12, 26, 21          
+журам                           6                     13                  
+төрийн алба                     8                     23                  
+тушаал                          8                     7                   
+сүлжээ                          8                     12                  
+ажил                            8, 9                  19, 19              
+нэмэгдэл                        8                     27                  
+зохион байгуулагч               9                     26                  
+газар                           9                     6                   
+хангагч                         9                     18                  

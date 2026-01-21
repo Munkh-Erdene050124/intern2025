@@ -1,0 +1,10 @@
+File: MNCLW00020.txt
+Search Method: Trie (MWE + Single-Word)
+Total runtime: 0.000246s
+Found terms: 4
+
+Term                            Line                  Word Place          
+
+ажил                            6, 7                  1, 16               
+аж ахуйн нэгж                   7                     4                   
+байгууллага                     7                     7                   

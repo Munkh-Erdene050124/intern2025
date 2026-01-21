@@ -1,0 +1,9 @@
+File: MNCLW00429.txt
+Search Method: Trie (MWE + Single-Word)
+Total runtime: 0.000259s
+Found terms: 4
+
+Term                            Line                  Word Place          
+
+нийгмийн халамж                 8, 9, 10              1, 11, 13           
+мөрдөгч                         10                    25                  

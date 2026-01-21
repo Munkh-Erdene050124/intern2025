@@ -1,0 +1,9 @@
+File: MNCLW00740.txt
+Search Method: Trie (MWE + Single-Word)
+Total runtime: 0.000340s
+Found terms: 4
+
+Term                            Line                  Word Place          
+
+хуулийн этгээдийн улсын бүртгэл  6, 7, 8               1, 11, 5            
+мөрдөгч                         8                     19                  

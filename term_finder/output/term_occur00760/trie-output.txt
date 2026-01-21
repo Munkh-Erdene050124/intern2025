@@ -1,0 +1,10 @@
+File: MNCLW00760.txt
+Search Method: Trie (MWE + Single-Word)
+Total runtime: 0.000325s
+Found terms: 6
+
+Term                            Line                  Word Place          
+
+хуульч                          6, 7, 8               1, 12, 6            
+сонгогч                         6, 7                  2, 13               
+мөрдөгч                         8                     18                  

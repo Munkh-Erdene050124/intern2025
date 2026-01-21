@@ -1,0 +1,15 @@
+File: MNCLW00475.txt
+Search Method: Aho-Corasick
+Total runtime: 0.000127s
+Found terms: 11
+
+Term                            Line                  Word Place          
+
+албан татвар                    6, 8                  3, 35               
+харилцаа холбоо                 8, 8                  22, 25              
+газар                           8, 8                  4, 7                
+зээл                            8                     17                  
+хэлэлцээр                       8                     18                  
+төсөл                           8                     27                  
+бараа                           8                     31                  
+үйлчилгээ                       8                     32                  

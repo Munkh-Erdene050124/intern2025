@@ -1,0 +1,10 @@
+File: MNCLW00028.txt
+Search Method: Trie (MWE + Single-Word)
+Total runtime: 0.000364s
+Found terms: 4
+
+Term                            Line                  Word Place          
+
+ан агнуур                       6, 7                  1, 12               
+амьтан                          8                     13                  
+мөрдөгч                         8                     24                  

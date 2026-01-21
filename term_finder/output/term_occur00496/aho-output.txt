@@ -1,0 +1,9 @@
+File: MNCLW00496.txt
+Search Method: Aho-Corasick
+Total runtime: 0.000255s
+Found terms: 2
+
+Term                            Line                  Word Place          
+
+тэтгэвэр                        6                     9                   
+зарлиг                          14                    13                  

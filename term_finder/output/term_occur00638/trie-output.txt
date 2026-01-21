@@ -1,0 +1,16 @@
+File: MNCLW00638.txt
+Search Method: Trie (MWE + Single-Word)
+Total runtime: 0.001312s
+Found terms: 13
+
+Term                            Line                  Word Place          
+
+улсын тэмдэгтийн хураамж        6, 7                  1, 43               
+үйл ажиллагаа                   7                     9                   
+газар                           7                     6                   
+хөтөлбөр                        7                     11                  
+иргэн                           7, 7, 7               24, 31, 42          
+ажил                            7                     29                  
+хангагч                         7                     30                  
+хураамж                         7                     54                  
+мөрдөгч                         8, 9                  22, 22              

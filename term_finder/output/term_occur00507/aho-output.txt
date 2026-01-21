@@ -1,0 +1,11 @@
+File: MNCLW00507.txt
+Search Method: Aho-Corasick
+Total runtime: 0.000192s
+Found terms: 9
+
+Term                            Line                  Word Place          
+
+албан татвар                    6, 7, 7, 8            2, 4, 38, 12        
+мөрдөгч                         6, 9                  7, 14               
+журам                           6, 8                  8, 16               
+газар                           8                     18                  

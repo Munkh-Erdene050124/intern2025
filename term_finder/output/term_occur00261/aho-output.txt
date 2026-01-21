@@ -1,0 +1,11 @@
+File: MNCLW00261.txt
+Search Method: Aho-Corasick
+Total runtime: 0.000148s
+Found terms: 9
+
+Term                            Line                  Word Place          
+
+тэтгэвэр                        6, 7                  2, 5                
+сан                             6, 7                  4, 7                
+мөрдөгч                         6, 7, 8               8, 11, 24           
+журам                           6, 7                  9, 12               

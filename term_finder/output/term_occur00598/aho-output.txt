@@ -1,0 +1,13 @@
+File: MNCLW00598.txt
+Search Method: Aho-Corasick
+Total runtime: 0.000256s
+Found terms: 12
+
+Term                            Line                  Word Place          
+
+төрийн бус байгууллага          6, 8, 8, 10           1, 1, 13, 12        
+                                12, 14                7, 3                
+мөрдөгч                         6, 14                 7, 14               
+журам                           6, 8                  8, 20               
+улсын бүртгэл                   10                    18                  
+улсын тэмдэгтийн хураамж        12                    15                  

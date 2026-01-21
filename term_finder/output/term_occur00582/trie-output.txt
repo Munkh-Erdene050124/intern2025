@@ -1,0 +1,10 @@
+File: MNCLW00582.txt
+Search Method: Trie (MWE + Single-Word)
+Total runtime: 0.000330s
+Found terms: 4
+
+Term                            Line                  Word Place          
+
+төрийн ордон                    5                     1                   
+төлбөр                          6, 7                  1, 11               
+мөрдөгч                         8                     18                  

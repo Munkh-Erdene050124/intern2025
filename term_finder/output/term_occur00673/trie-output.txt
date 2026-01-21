@@ -1,0 +1,10 @@
+File: MNCLW00673.txt
+Search Method: Trie (MWE + Single-Word)
+Total runtime: 0.000353s
+Found terms: 4
+
+Term                            Line                  Word Place          
+
+хилийн боомт                    8, 9                  1, 12               
+монгол улсын хил                10                    6                   
+мөрдөгч                         10                    19                  

@@ -1,0 +1,16 @@
+File: MNCLW00788.txt
+Search Method: Aho-Corasick
+Total runtime: 0.000177s
+Found terms: 15
+
+Term                            Line                  Word Place          
+
+чөлөөт бүс                      6, 7, 7, 8            1, 13, 15, 20       
+                                9                     6                   
+мөрдөгч                         6, 8, 9               6, 10, 18           
+журам                           6                     7                   
+аж ахуйн нэгж                   8                     29                  
+газар эзэмших                   8, 8                  24, 33              
+газар                           8                     22                  
+иргэн                           8                     28                  
+байгууллага                     8                     32                  

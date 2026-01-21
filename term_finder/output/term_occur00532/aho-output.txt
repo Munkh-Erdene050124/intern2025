@@ -1,0 +1,13 @@
+File: MNCLW00532.txt
+Search Method: Aho-Corasick
+Total runtime: 0.000170s
+Found terms: 15
+
+Term                            Line                  Word Place          
+
+төрийн ордон                    5                     1                   
+үйл ажиллагаа                   8, 9                  17, 17              
+компани                         8, 9                  16, 16              
+газар                           8, 8, 8, 8            23, 28, 45, 50      
+                                9, 9, 9, 9            23, 28, 45, 50      
+хэлэлцээр                       8, 9                  37, 37              

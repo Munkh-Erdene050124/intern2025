@@ -1,0 +1,18 @@
+File: MNCLW00221.txt
+Search Method: Trie (MWE + Single-Word)
+Total runtime: 0.000460s
+Found terms: 12
+
+Term                            Line                  Word Place          
+
+газар                           6, 7                  2, 7                
+сан                             10                    2                   
+батлан хамгаалах                14                    2                   
+хот байгуулалт                  15                    3                   
+аялал жуулчлал                  17                    4                   
+зам                             17                    2                   
+эрчим хүч                       18                    3                   
+түлш                            18                    2                   
+хүнс                            21                    2                   
+ажилгүй                         21                    4                   
+мөрдөгч                         23                    15                  

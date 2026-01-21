@@ -1,0 +1,15 @@
+File: MNCLW00101.txt
+Search Method: Aho-Corasick
+Total runtime: 0.000200s
+Found terms: 11
+
+Term                            Line                  Word Place          
+
+албан татвар                    6, 7, 8               2, 22, 4            
+эрчим хүч хэмнэлт               7                     16                  
+агаарын бохирдол                7                     4                   
+агаарын чанар                   7                     7                   
+агаар                           7, 8                  14, 7               
+систем                          8                     16                  
+газар                           8                     23                  
+мөрдөгч                         9                     14                  

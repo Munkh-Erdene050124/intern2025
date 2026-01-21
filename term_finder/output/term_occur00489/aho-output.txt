@@ -1,0 +1,9 @@
+File: MNCLW00489.txt
+Search Method: Aho-Corasick
+Total runtime: 0.000151s
+Found terms: 4
+
+Term                            Line                  Word Place          
+
+ой                              6, 7, 8               1, 11, 13           
+мөрдөгч                         8                     24                  

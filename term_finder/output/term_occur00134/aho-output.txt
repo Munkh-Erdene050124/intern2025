@@ -1,0 +1,15 @@
+File: MNCLW00134.txt
+Search Method: Aho-Corasick
+Total runtime: 0.000206s
+Found terms: 16
+
+Term                            Line                  Word Place          
+
+төрийн ордон                    5                     1                   
+албан татвар                    6, 7, 8, 9            2, 31, 31, 14       
+                                10                    14                  
+мөрдөгч                         6, 9, 10              8, 25, 25           
+журам                           6                     9                   
+тоног төхөөрөмж                 7, 8                  24, 24              
+хөрөнгө                         7, 8                  16, 16              
+хангагч                         7, 8                  20, 20              

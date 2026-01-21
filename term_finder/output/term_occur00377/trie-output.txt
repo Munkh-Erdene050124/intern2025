@@ -1,0 +1,9 @@
+File: MNCLW00377.txt
+Search Method: Trie (MWE + Single-Word)
+Total runtime: 0.000284s
+Found terms: 4
+
+Term                            Line                  Word Place          
+
+хүү                             5                     2                   
+банк                            6, 7, 8               4, 15, 9            

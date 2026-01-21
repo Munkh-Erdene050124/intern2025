@@ -1,0 +1,13 @@
+File: MNCLW00744.txt
+Search Method: Aho-Corasick
+Total runtime: 0.000917s
+Found terms: 14
+
+Term                            Line                  Word Place          
+
+мөрдөгч                         6, 7, 8               3, 54, 54           
+журам                           6                     4                   
+банк                            7, 7, 8, 8            4, 18, 4, 18        
+сан                             7, 8                  16, 16              
+гишүүн                          7, 8                  19, 19              
+хөрөнгө                         7, 8                  22, 22              

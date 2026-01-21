@@ -1,0 +1,11 @@
+File: MNCLW00227.txt
+Search Method: Trie (MWE + Single-Word)
+Total runtime: 0.000294s
+Found terms: 7
+
+Term                            Line                  Word Place          
+
+албадан хөдөлмөр                6, 7                  3, 14               
+захиргаа                        6, 7                  1, 12               
+журам                           6, 7                  2, 13               
+мөрдөгч                         8                     17                  

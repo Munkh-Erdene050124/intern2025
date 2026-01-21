@@ -1,0 +1,15 @@
+File: MNCLW00124.txt
+Search Method: Trie (MWE + Single-Word)
+Total runtime: 0.000707s
+Found terms: 14
+
+Term                            Line                  Word Place          
+
+албан татвар                    6, 7, 9               2, 42, 5            
+тоног төхөөрөмж                 7, 7, 9               20, 26, 14          
+ургамал хамгаалал               7, 9                  29, 17              
+ажилгүй                         7, 7                  8, 23               
+ой                              7                     22                  
+систем                          9                     25                  
+газар                           9                     30                  
+мөрдөгч                         11                    18                  

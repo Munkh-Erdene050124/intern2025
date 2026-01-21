@@ -1,0 +1,10 @@
+File: MNCLW00194.txt
+Search Method: Aho-Corasick
+Total runtime: 0.000165s
+Found terms: 5
+
+Term                            Line                  Word Place          
+
+төрийн ордон                    5                     1                   
+үйлчилгээ                       9, 10                 8, 8                
+мөрдөгч                         9, 10                 20, 20              

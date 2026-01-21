@@ -1,0 +1,13 @@
+File: MNCLW00262.txt
+Search Method: Trie (MWE + Single-Word)
+Total runtime: 0.000420s
+Found terms: 13
+
+Term                            Line                  Word Place          
+
+төрийн ордон                    5                     1                   
+тэтгэвэр                        6, 7, 8               2, 12, 12           
+сан                             6, 7, 8, 9            4, 14, 14, 8        
+                                10                    8                   
+газар                           9, 10                 6, 6                
+мөрдөгч                         9, 10                 19, 19              

@@ -1,0 +1,11 @@
+File: MNCLW00465.txt
+Search Method: Trie (MWE + Single-Word)
+Total runtime: 0.000304s
+Found terms: 5
+
+Term                            Line                  Word Place          
+
+албан татвар                    6, 7                  3, 34               
+аялал жуулчлал                  7                     12                  
+салбар                          7                     14                  
+мөрдөгч                         8                     15                  

@@ -1,0 +1,10 @@
+File: MNCLW00654.txt
+Search Method: Trie (MWE + Single-Word)
+Total runtime: 0.000435s
+Found terms: 5
+
+Term                            Line                  Word Place          
+
+төрийн ордон                    5                     1                   
+үнэт цаасны зах зээл            6, 10, 11             1, 11, 13           
+мөрдөгч                         11                    27                  

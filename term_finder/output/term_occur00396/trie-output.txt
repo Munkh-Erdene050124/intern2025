@@ -1,0 +1,14 @@
+File: MNCLW00396.txt
+Search Method: Trie (MWE + Single-Word)
+Total runtime: 0.000108s
+Found terms: 11
+
+Term                            Line                  Word Place          
+
+төрийн ордон                    5                     1                   
+хүү                             5                     4                   
+мэдээлл                         6, 7                  1, 11               
+баар                            6, 7                  5, 15               
+мэдээлэл                        6, 7                  6, 16               
+журм                            6, 7                  13, 23              
+нийтийн мэдээлл                 8                     5                   

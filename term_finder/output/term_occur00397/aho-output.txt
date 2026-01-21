@@ -1,0 +1,13 @@
+File: MNCLW00397.txt
+Search Method: Aho-Corasick
+Total runtime: 0.000059s
+Found terms: 9
+
+Term                            Line                  Word Place          
+
+төрийн ордон                    5                     1                   
+хүү                             5                     4                   
+мэдээлл                         6, 7                  1, 11               
+баар                            6, 7                  5, 15               
+мэдээлэл                        6, 7                  6, 16               
+нийтийн мэдээлл                 8                     5                   

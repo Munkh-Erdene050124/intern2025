@@ -1,0 +1,9 @@
+File: MNCLW00730.txt
+Search Method: Trie (MWE + Single-Word)
+Total runtime: 0.000361s
+Found terms: 4
+
+Term                            Line                  Word Place          
+
+хүн                             8, 9                  1, 12               
+сан                             8, 9                  3, 14               

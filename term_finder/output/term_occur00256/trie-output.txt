@@ -1,0 +1,11 @@
+File: MNCLW00256.txt
+Search Method: Trie (MWE + Single-Word)
+Total runtime: 0.000364s
+Found terms: 10
+
+Term                            Line                  Word Place          
+
+төрийн ордон                    5                     1                   
+иргэн                           6, 7, 8               1, 1, 12            
+мөрдөгч                         6, 7, 8, 9            14, 14, 46, 17      
+журам                           6, 7                  15, 15              

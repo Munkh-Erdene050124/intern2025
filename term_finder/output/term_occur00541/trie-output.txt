@@ -1,0 +1,11 @@
+File: MNCLW00541.txt
+Search Method: Trie (MWE + Single-Word)
+Total runtime: 0.000329s
+Found terms: 8
+
+Term                            Line                  Word Place          
+
+төрийн ордон                    5                     1                   
+соёлын өв                       6, 7, 8, 9            1, 11, 11, 13       
+                                10                    13                  
+мөрдөгч                         9, 10                 26, 26              

@@ -7,7 +7,7 @@ from bs4 import BeautifulSoup
 import json
 
 #use the teacher pipeline endpoint that your working functions.py uses.
-NLP_URL = "http://10.0.50.62:8081/nlp-web-demo/process?text="
+NLP_URL = "http://speech.mn:8081/nlp-web-demo/process?text="
 
 _session = requests.Session()
 

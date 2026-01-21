@@ -1,0 +1,10 @@
+File: MNCLW00034.txt
+Search Method: Trie (MWE + Single-Word)
+Total runtime: 0.000312s
+Found terms: 4
+
+Term                            Line                  Word Place          
+
+ариун цэвэр                     6, 7                  1, 12               
+эрүүл ахуй                      8                     6                   
+мөрдөгч                         8                     16                  

@@ -1,0 +1,11 @@
+File: MNCLW00579.txt
+Search Method: Aho-Corasick
+Total runtime: 0.000183s
+Found terms: 8
+
+Term                            Line                  Word Place          
+
+төрийн ордон                    5                     1                   
+терроризмтой тэмцэх             6, 7, 8, 9            1, 11, 11, 11       
+                                10                    11                  
+мөрдөгч                         9, 10                 23, 23              

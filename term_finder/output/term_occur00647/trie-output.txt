@@ -1,0 +1,10 @@
+File: MNCLW00647.txt
+Search Method: Trie (MWE + Single-Word)
+Total runtime: 0.000485s
+Found terms: 4
+
+Term                            Line                  Word Place          
+
+мөрдөгч                         6, 8                  13, 23              
+журам                           6                     14                  
+хангагч                         7                     38                  

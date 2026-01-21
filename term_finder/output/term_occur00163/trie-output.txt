@@ -1,0 +1,12 @@
+File: MNCLW00163.txt
+Search Method: Trie (MWE + Single-Word)
+Total runtime: 0.000531s
+Found terms: 10
+
+Term                            Line                  Word Place          
+
+төрийн ордон                    5                     1                   
+урьдчилан сэргийлэх             6, 7, 8, 9            3, 13, 13, 8        
+                                10                    8                   
+гэмт хэрэг                      9, 10                 5, 5                
+мөрдөгч                         9, 10                 18, 18              

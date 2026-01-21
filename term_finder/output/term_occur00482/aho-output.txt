@@ -1,0 +1,11 @@
+File: MNCLW00482.txt
+Search Method: Aho-Corasick
+Total runtime: 0.000190s
+Found terms: 7
+
+Term                            Line                  Word Place          
+
+төрийн ордон                    5                     1                   
+албан татвар                    6, 7, 8               3, 29, 29           
+хүнс                            7, 8                  15, 15              
+мөрдөгч                         11                    18                  

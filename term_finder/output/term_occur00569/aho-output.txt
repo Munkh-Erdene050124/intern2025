@@ -1,0 +1,13 @@
+File: MNCLW00569.txt
+Search Method: Aho-Corasick
+Total runtime: 0.000159s
+Found terms: 15
+
+Term                            Line                  Word Place          
+
+төрийн ордон                    5                     1                   
+алданги                         6, 7, 8               2, 38, 38           
+торгууль                        6, 7, 8               3, 39, 39           
+албан татвар                    7, 7, 8, 8            19, 41, 19, 41      
+тохиолдол                       7, 8                  33, 33              
+мөрдөгч                         9, 10                 22, 22              

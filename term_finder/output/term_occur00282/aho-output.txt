@@ -1,0 +1,12 @@
+File: MNCLW00282.txt
+Search Method: Aho-Corasick
+Total runtime: 0.000196s
+Found terms: 8
+
+Term                            Line                  Word Place          
+
+сангийн хөрөнгө                 6                     4                   
+мал                             7, 7                  8, 23               
+иргэн                           7                     25                  
+сан                             8, 8, 9               26, 33, 9           
+мөрдөгч                         9                     31                  

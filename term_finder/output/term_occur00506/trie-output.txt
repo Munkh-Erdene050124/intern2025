@@ -1,0 +1,14 @@
+File: MNCLW00506.txt
+Search Method: Trie (MWE + Single-Word)
+Total runtime: 0.000445s
+Found terms: 14
+
+Term                            Line                  Word Place          
+
+төрийн ордон                    5                     1                   
+албан татвар                    6, 7, 8, 9            2, 25, 25, 6        
+                                10                    6                   
+мөрдөгч                         6, 9, 10              12, 21, 21          
+журам                           6                     13                  
+зам                             7, 8                  8, 8                
+түлш                            7, 8                  23, 23              

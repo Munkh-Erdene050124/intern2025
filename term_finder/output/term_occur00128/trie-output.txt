@@ -1,0 +1,12 @@
+File: MNCLW00128.txt
+Search Method: Trie (MWE + Single-Word)
+Total runtime: 0.000599s
+Found terms: 13
+
+Term                            Line                  Word Place          
+
+албан татвар                    6, 7, 7, 8            2, 4, 53, 4         
+                                8, 9, 10              53, 14, 14          
+мөрдөгч                         6, 9, 10              8, 25, 25           
+журам                           6                     9                   
+стандарт                        7, 8                  42, 42              

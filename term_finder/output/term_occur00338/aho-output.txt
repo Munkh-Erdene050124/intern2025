@@ -1,0 +1,9 @@
+File: MNCLW00338.txt
+Search Method: Aho-Corasick
+Total runtime: 0.000178s
+Found terms: 2
+
+Term                            Line                  Word Place          
+
+хүү                             5                     2                   
+журм                            6                     7                   

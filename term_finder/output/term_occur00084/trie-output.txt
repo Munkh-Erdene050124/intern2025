@@ -1,0 +1,10 @@
+File: MNCLW00084.txt
+Search Method: Trie (MWE + Single-Word)
+Total runtime: 0.000289s
+Found terms: 4
+
+Term                            Line                  Word Place          
+
+албан татвар                    6, 7                  2, 13               
+галт зэвсэг                     8                     6                   
+мөрдөгч                         8                     18                  

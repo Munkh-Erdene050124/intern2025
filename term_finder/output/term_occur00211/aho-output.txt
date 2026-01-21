@@ -1,0 +1,11 @@
+File: MNCLW00211.txt
+Search Method: Aho-Corasick
+Total runtime: 0.000146s
+Found terms: 5
+
+Term                            Line                  Word Place          
+
+газар                           6, 8                  2, 34               
+гаалийн татвар                  8                     26                  
+үр                              8                     21                  
+хүнс                            8                     24                  

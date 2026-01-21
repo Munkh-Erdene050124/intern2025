@@ -1,0 +1,9 @@
+File: MNCLW00721.txt
+Search Method: Trie (MWE + Single-Word)
+Total runtime: 0.000354s
+Found terms: 4
+
+Term                            Line                  Word Place          
+
+хүний дархлал хомсдолын вирусын халдвар, дархлалын олдмол хомсдолоос сэргийлэх  6, 7, 8               1, 11, 5            
+мөрдөгч                         8                     24                  

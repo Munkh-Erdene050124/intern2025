@@ -1,0 +1,9 @@
+File: MNCLW00730.txt
+Search Method: Aho-Corasick
+Total runtime: 0.000159s
+Found terms: 4
+
+Term                            Line                  Word Place          
+
+хүн                             8, 9                  1, 12               
+сан                             8, 9                  3, 14               

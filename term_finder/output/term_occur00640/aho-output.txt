@@ -1,0 +1,15 @@
+File: MNCLW00640.txt
+Search Method: Aho-Corasick
+Total runtime: 0.000316s
+Found terms: 16
+
+Term                            Line                  Word Place          
+
+шалгагч                         9, 9                  7, 70               
+газар                           9, 9, 9, 9            12, 52, 56, 64      
+                                10, 10, 13            12, 17, 6           
+ус                              9                     14                  
+шугам                           9, 9, 9               18, 39, 41          
+тохиолдол                       9                     23                  
+ажил                            9                     71                  
+зохицуулалт                     10                    14                  

@@ -1,0 +1,9 @@
+File: MNCLW00366.txt
+Search Method: Trie (MWE + Single-Word)
+Total runtime: 0.000296s
+Found terms: 4
+
+Term                            Line                  Word Place          
+
+хүү                             5                     2                   
+улсын тэмдэгтийн хураамж        6, 7, 8               2, 12, 13           

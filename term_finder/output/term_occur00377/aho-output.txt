@@ -1,0 +1,9 @@
+File: MNCLW00377.txt
+Search Method: Aho-Corasick
+Total runtime: 0.000184s
+Found terms: 4
+
+Term                            Line                  Word Place          
+
+хүү                             5                     2                   
+банк                            6, 7, 8               4, 15, 9            

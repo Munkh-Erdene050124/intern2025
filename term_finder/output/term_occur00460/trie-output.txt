@@ -1,0 +1,16 @@
+File: MNCLW00460.txt
+Search Method: Trie (MWE + Single-Word)
+Total runtime: 0.000448s
+Found terms: 18
+
+Term                            Line                  Word Place          
+
+төрийн ордон                    5                     1                   
+албан татвар                    6, 7, 8               3, 59, 5            
+үр                              7, 8                  16, 11              
+үйлдвэрлэгч                     7, 7                  19, 52              
+хүнс                            7, 7, 8, 8            27, 32, 12, 17      
+ургамал                         7, 7, 8               43, 53, 28          
+систем                          8                     35                  
+газар                           8                     42                  
+мөрдөгч                         9                     20                  

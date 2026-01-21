@@ -1,0 +1,12 @@
+File: MNCLW00797.txt
+Search Method: Trie (MWE + Single-Word)
+Total runtime: 0.000270s
+Found terms: 12
+
+Term                            Line                  Word Place          
+
+шүүх                            6, 7, 7, 8            1, 4, 28, 14        
+шүүгч                           6, 7, 7, 8            1, 4, 28, 14        
+мөрдөгч                         6, 8                  10, 28              
+журам                           6                     11                  
+иргэн                           7                     25                  

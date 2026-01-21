@@ -1,0 +1,11 @@
+File: MNCLW00843.txt
+Search Method: Trie (MWE + Single-Word)
+Total runtime: 0.000415s
+Found terms: 5
+
+Term                            Line                  Word Place          
+
+бүтээгдэхүүн                    8, 9                  4, 15               
+балчир хүүхэд                   10                    7                   
+хүнс                            10                    9                   
+мөрдөгч                         10                    18                  

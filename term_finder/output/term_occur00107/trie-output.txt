@@ -1,0 +1,14 @@
+File: MNCLW00107.txt
+Search Method: Trie (MWE + Single-Word)
+Total runtime: 0.000620s
+Found terms: 14
+
+Term                            Line                  Word Place          
+
+албан татвар                    6, 7, 8, 9            2, 33, 4, 4         
+мал                             7, 8, 9               9, 7, 7             
+хүнс                            7                     20                  
+үр                              7                     28                  
+систем                          8, 9                  15, 15              
+газар                           8, 9                  22, 22              
+мөрдөгч                         10                    23                  

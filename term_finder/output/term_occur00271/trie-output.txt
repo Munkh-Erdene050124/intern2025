@@ -1,0 +1,10 @@
+File: MNCLW00271.txt
+Search Method: Trie (MWE + Single-Word)
+Total runtime: 0.000312s
+Found terms: 3
+
+Term                            Line                  Word Place          
+
+төрийн ордон                    5                     1                   
+төр, хувийн хэвшлийн түншлэл    8                     5                   
+мөрдөгч                         8                     17                  

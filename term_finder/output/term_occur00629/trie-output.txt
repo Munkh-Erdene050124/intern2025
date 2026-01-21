@@ -1,0 +1,8 @@
+File: MNCLW00629.txt
+Search Method: Trie (MWE + Single-Word)
+Total runtime: 0.000490s
+Found terms: 2
+
+Term                            Line                  Word Place          
+
+мөрдөгч                         11, 12                28, 28              

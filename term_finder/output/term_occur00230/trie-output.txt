@@ -1,0 +1,13 @@
+File: MNCLW00230.txt
+Search Method: Trie (MWE + Single-Word)
+Total runtime: 0.000402s
+Found terms: 15
+
+Term                            Line                  Word Place          
+
+захиргаа                        6, 7, 8               1, 12, 12           
+шүүгч                           6, 7, 8, 9            3, 14, 14, 5        
+                                10                    5                   
+шүүх                            6, 7, 8, 9            3, 14, 14, 5        
+                                10                    5                   
+мөрдөгч                         9, 10                 17, 17              

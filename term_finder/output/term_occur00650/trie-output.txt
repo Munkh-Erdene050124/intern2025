@@ -1,0 +1,17 @@
+File: MNCLW00650.txt
+Search Method: Trie (MWE + Single-Word)
+Total runtime: 0.000764s
+Found terms: 15
+
+Term                            Line                  Word Place          
+
+төрийн ордон                    5                     1                   
+мөрдөгч                         6, 10                 10, 19              
+журам                           6, 7                  11, 24              
+эрх бүхий этгээд                7                     29                  
+ой                              7, 8, 8               8, 8, 11            
+санал                           7                     19                  
+зохион байгуулагч               8                     24                  
+газар                           8, 9                  28, 20              
+генетик нөөц                    9                     4                   
+сан                             9                     14                  

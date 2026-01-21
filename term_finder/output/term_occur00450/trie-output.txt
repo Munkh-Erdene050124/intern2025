@@ -1,0 +1,10 @@
+File: MNCLW00450.txt
+Search Method: Trie (MWE + Single-Word)
+Total runtime: 0.000314s
+Found terms: 4
+
+Term                            Line                  Word Place          
+
+албан татвар                    6, 7                  3, 18               
+цахилгаан дамжуулах сүлжээ      7                     6                   
+эрчим хүч                       7                     14                  

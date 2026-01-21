@@ -1,0 +1,10 @@
+File: MNCLW00370.txt
+Search Method: Trie (MWE + Single-Word)
+Total runtime: 0.000409s
+Found terms: 7
+
+Term                            Line                  Word Place          
+
+хүү                             5                     2                   
+журм                            6, 6, 7, 7            8, 13, 8, 13        
+                                8, 9                  11, 11              

@@ -1,0 +1,10 @@
+File: MNCLW00023.txt
+Search Method: Trie (MWE + Single-Word)
+Total runtime: 0.000379s
+Found terms: 5
+
+Term                            Line                  Word Place          
+
+сум                             6, 7                  2, 13               
+иргэн                           6, 7                  4, 15               
+мөрдөгч                         8                     15                  

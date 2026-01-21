@@ -1,0 +1,10 @@
+File: MNCLW00534.txt
+Search Method: Trie (MWE + Single-Word)
+Total runtime: 0.000280s
+Found terms: 4
+
+Term                            Line                  Word Place          
+
+рашаан                          6, 7                  1, 11               
+ус                              8                     13                  
+мөрдөгч                         8                     24                  

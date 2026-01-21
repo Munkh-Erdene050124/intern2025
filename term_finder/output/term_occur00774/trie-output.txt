@@ -1,0 +1,8 @@
+File: MNCLW00774.txt
+Search Method: Trie (MWE + Single-Word)
+Total runtime: 0.000393s
+Found terms: 1
+
+Term                            Line                  Word Place          
+
+мөрдөгч                         8                     18                  

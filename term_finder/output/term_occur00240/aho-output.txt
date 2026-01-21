@@ -1,0 +1,10 @@
+File: MNCLW00240.txt
+Search Method: Aho-Corasick
+Total runtime: 0.000156s
+Found terms: 5
+
+Term                            Line                  Word Place          
+
+төрийн ордон                    5                     1                   
+хамаарах эрх                    6, 7, 8               5, 5, 15            
+мөрдөгч                         9                     17                  

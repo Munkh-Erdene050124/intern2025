@@ -1,0 +1,15 @@
+File: MNCLW00772.txt
+Search Method: Aho-Corasick
+Total runtime: 0.000311s
+Found terms: 10
+
+Term                            Line                  Word Place          
+
+мөрдөгч                         8, 12                 6, 17               
+журам                           8, 11                 7, 41               
+цэргийн алба                    9                     19                  
+тэтгэвэр                        9                     22                  
+гүйцэтгэгч                      9                     24                  
+ажилтан                         9                     25                  
+зам                             9                     26                  
+туслагч                         11                    26                  

@@ -1,0 +1,16 @@
+File: MNCLW00105.txt
+Search Method: Trie (MWE + Single-Word)
+Total runtime: 0.000403s
+Found terms: 13
+
+Term                            Line                  Word Place          
+
+албан татвар                    6, 7                  2, 24               
+эмнэлгийн хэрэгсэл              7, 8                  14, 10              
+тоног төхөөрөмж                 7, 8                  16, 12              
+халдвар                         7                     8                   
+хэрэглэгч                       7                     11                  
+оношлуур                        7                     12                  
+эм                              7, 8                  13, 9               
+газар                           8                     19                  
+мөрдөгч                         9                     14                  

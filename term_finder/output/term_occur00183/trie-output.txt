@@ -1,0 +1,10 @@
+File: MNCLW00183.txt
+Search Method: Trie (MWE + Single-Word)
+Total runtime: 0.000307s
+Found terms: 7
+
+Term                            Line                  Word Place          
+
+донор                           6, 7, 8, 9            1, 11, 11, 5        
+                                10                    5                   
+мөрдөгч                         9, 10                 16, 16              

@@ -1,0 +1,16 @@
+File: MNCLW00455.txt
+Search Method: Trie (MWE + Single-Word)
+Total runtime: 0.000516s
+Found terms: 18
+
+Term                            Line                  Word Place          
+
+албан татвар                    6, 7                  3, 39               
+ой                              7, 8, 9               5, 11, 11           
+ажилгүй                         7, 8, 9               6, 12, 12           
+ажил                            7, 8, 9               10, 16, 16          
+түлш                            7                     19                  
+стандарт                        7                     28                  
+систем                          8, 9                  28, 28              
+газар                           8, 9                  33, 33              
+мөрдөгч                         10                    14                  

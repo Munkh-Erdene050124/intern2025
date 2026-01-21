@@ -1,0 +1,8 @@
+File: MNCLW00587.txt
+Search Method: Trie (MWE + Single-Word)
+Total runtime: 0.000413s
+Found terms: 4
+
+Term                            Line                  Word Place          
+
+мөрдөгч                         7, 8, 9, 10           40, 40, 29, 29      

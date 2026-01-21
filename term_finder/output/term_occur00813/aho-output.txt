@@ -1,0 +1,12 @@
+File: MNCLW00813.txt
+Search Method: Aho-Corasick
+Total runtime: 0.000205s
+Found terms: 13
+
+Term                            Line                  Word Place          
+
+эд хөрөнгө                      6, 6, 7, 7            1, 6, 11, 17        
+                                8, 8                  11, 17              
+улсын бүртгэл                   6, 7, 8               10, 21, 21          
+эд хөрөнгийн эрхийн улсын бүртгэл  9, 10                 5, 5                
+мөрдөгч                         9, 10                 20, 20              

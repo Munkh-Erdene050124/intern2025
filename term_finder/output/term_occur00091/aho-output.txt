@@ -1,0 +1,10 @@
+File: MNCLW00091.txt
+Search Method: Aho-Corasick
+Total runtime: 0.000158s
+Found terms: 7
+
+Term                            Line                  Word Place          
+
+албан татвар                    6, 7, 8               2, 17, 17           
+цахилгаан дамжуулах сүлжээ      7, 8                  6, 6                
+эрчим хүч                       7, 8                  14, 14              

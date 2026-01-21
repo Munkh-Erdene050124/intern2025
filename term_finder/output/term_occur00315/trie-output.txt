@@ -1,0 +1,9 @@
+File: MNCLW00315.txt
+Search Method: Trie (MWE + Single-Word)
+Total runtime: 0.000465s
+Found terms: 2
+
+Term                            Line                  Word Place          
+
+хүү                             5                     2                   
+газр                            12                    6                   

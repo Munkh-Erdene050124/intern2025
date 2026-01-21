@@ -1,0 +1,11 @@
+File: MNCLW00208.txt
+Search Method: Aho-Corasick
+Total runtime: 0.000170s
+Found terms: 9
+
+Term                            Line                  Word Place          
+
+зарлиг                          6, 7, 8               1, 25, 25           
+дүрэм                           7, 8                  4, 4                
+эд хөрөнгө                      9, 10                 9, 9                
+мөрдөгч                         9, 10                 21, 21              

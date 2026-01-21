@@ -1,0 +1,15 @@
+File: MNCLW00643.txt
+Search Method: Trie (MWE + Single-Word)
+Total runtime: 0.000538s
+Found terms: 14
+
+Term                            Line                  Word Place          
+
+эд хөрөнгө                      6, 7, 8, 8            3, 5, 5, 13         
+                                9                     7                   
+мөрдөгч                         6, 9                  9, 18               
+журам                           6, 7                  10, 11              
+үл хөдлөх эд хөрөнгө            7                     19                  
+хэрэглэгч                       7, 8                  26, 41              
+талууд                          8                     24                  
+тал                             8                     24                  

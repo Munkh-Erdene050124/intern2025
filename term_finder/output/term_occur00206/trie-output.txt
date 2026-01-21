@@ -1,0 +1,13 @@
+File: MNCLW00206.txt
+Search Method: Trie (MWE + Single-Word)
+Total runtime: 0.000366s
+Found terms: 7
+
+Term                            Line                  Word Place          
+
+албан татвар                    6, 8                  6, 33               
+тоног төхөөрөмж                 8                     27                  
+газар                           8                     4                   
+хөрөнгө                         8                     7                   
+нийслэл                         8                     8                   
+бараа                           8                     25                  

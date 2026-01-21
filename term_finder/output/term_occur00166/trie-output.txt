@@ -1,0 +1,9 @@
+File: MNCLW00166.txt
+Search Method: Trie (MWE + Single-Word)
+Total runtime: 0.000311s
+Found terms: 4
+
+Term                            Line                  Word Place          
+
+гэр бүл                         8, 9, 10              1, 12, 6            
+мөрдөгч                         10                    20                  

@@ -1,0 +1,10 @@
+File: MNCLW00432.txt
+Search Method: Trie (MWE + Single-Word)
+Total runtime: 0.000371s
+Found terms: 5
+
+Term                            Line                  Word Place          
+
+агаарын бохирдол                6, 7                  2, 12               
+нийслэл                         6, 7                  1, 11               
+мөрдөгч                         8                     24                  

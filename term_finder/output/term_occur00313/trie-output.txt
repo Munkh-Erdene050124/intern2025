@@ -1,0 +1,12 @@
+File: MNCLW00313.txt
+Search Method: Trie (MWE + Single-Word)
+Total runtime: 0.000365s
+Found terms: 8
+
+Term                            Line                  Word Place          
+
+хүү                             5                     2                   
+ахмад настан                    6, 7, 8               10, 21, 8           
+нэмэгдл                         6, 7                  14, 25              
+нэмэгдэл                        8                     11                  
+хөнгөлөлт                       8                     12                  

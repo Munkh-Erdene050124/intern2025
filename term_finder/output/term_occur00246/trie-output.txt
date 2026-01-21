@@ -1,0 +1,10 @@
+File: MNCLW00246.txt
+Search Method: Trie (MWE + Single-Word)
+Total runtime: 0.000305s
+Found terms: 6
+
+Term                            Line                  Word Place          
+
+журам                           6, 6, 7, 7            5, 8, 15, 18        
+эд хөрөнгө                      8                     7                   
+мөрдөгч                         8                     18                  

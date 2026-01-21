@@ -1,0 +1,10 @@
+File: MNCLW00779.txt
+Search Method: Trie (MWE + Single-Word)
+Total runtime: 0.000275s
+Found terms: 4
+
+Term                            Line                  Word Place          
+
+цацрагийн  хамгаалалт, аюулгүй  байдал  6, 7                  1, 11               
+цөмийн энерги                   8                     5                   
+мөрдөгч                         8                     15                  

@@ -1,0 +1,8 @@
+File: MNCLW00324.txt
+Search Method: Aho-Corasick
+Total runtime: 0.000155s
+Found terms: 1
+
+Term                            Line                  Word Place          
+
+хүү                             5                     2                   

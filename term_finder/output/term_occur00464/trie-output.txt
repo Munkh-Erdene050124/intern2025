@@ -1,0 +1,16 @@
+File: MNCLW00464.txt
+Search Method: Trie (MWE + Single-Word)
+Total runtime: 0.000408s
+Found terms: 13
+
+Term                            Line                  Word Place          
+
+төрийн ордон                    5                     1                   
+албан татвар                    6, 7, 8               3, 3, 36            
+тоног төхөөрөмж                 8, 8                  20, 28              
+ургамал хамгаалал               8                     31                  
+ажилгүй                         8, 8                  10, 25              
+ой                              8                     22                  
+систем                          9                     15                  
+газар                           9                     22                  
+мөрдөгч                         10                    14                  

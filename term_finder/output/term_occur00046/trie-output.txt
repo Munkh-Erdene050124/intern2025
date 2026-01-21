@@ -1,0 +1,12 @@
+File: MNCLW00046.txt
+Search Method: Trie (MWE + Single-Word)
+Total runtime: 0.000553s
+Found terms: 12
+
+Term                            Line                  Word Place          
+
+ашигт малтмал                   6, 7, 7, 8            1, 12, 43, 14       
+мөрдөгч                         6, 7, 7, 8            11, 26, 73, 29      
+журам                           6, 7                  12, 63              
+төлбөр төлөгч                   7                     77                  
+ашиглалт                        7                     32                  

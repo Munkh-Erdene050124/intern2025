@@ -1,0 +1,11 @@
+File: MNCLW00712.txt
+Search Method: Trie (MWE + Single-Word)
+Total runtime: 0.000348s
+Found terms: 5
+
+Term                            Line                  Word Place          
+
+төрийн ордон                    5                     1                   
+хувь хүний нууц                 6, 7                  1, 11               
+хүний хувийн мэдээлэл           8                     5                   
+мөрдөгч                         8                     19                  

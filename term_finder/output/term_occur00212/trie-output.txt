@@ -1,0 +1,10 @@
+File: MNCLW00212.txt
+Search Method: Trie (MWE + Single-Word)
+Total runtime: 0.000403s
+Found terms: 7
+
+Term                            Line                  Word Place          
+
+газар                           6, 7, 8               2, 33, 33           
+гаалийн тариф                   7, 8                  25, 25              
+мөрдөгч                         9, 10                 15, 15              

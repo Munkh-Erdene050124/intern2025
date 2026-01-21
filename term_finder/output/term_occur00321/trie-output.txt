@@ -1,0 +1,8 @@
+File: MNCLW00321.txt
+Search Method: Trie (MWE + Single-Word)
+Total runtime: 0.000272s
+Found terms: 1
+
+Term                            Line                  Word Place          
+
+хүү                             5                     2                   

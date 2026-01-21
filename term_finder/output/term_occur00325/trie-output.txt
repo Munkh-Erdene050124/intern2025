@@ -1,0 +1,9 @@
+File: MNCLW00325.txt
+Search Method: Trie (MWE + Single-Word)
+Total runtime: 0.000346s
+Found terms: 2
+
+Term                            Line                  Word Place          
+
+төрийн ордон                    5                     1                   
+хүү                             5                     4                   

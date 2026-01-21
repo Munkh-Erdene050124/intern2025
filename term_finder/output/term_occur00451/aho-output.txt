@@ -1,0 +1,13 @@
+File: MNCLW00451.txt
+Search Method: Aho-Corasick
+Total runtime: 0.000126s
+Found terms: 11
+
+Term                            Line                  Word Place          
+
+албан татвар                    6, 8                  3, 49               
+тоног төхөөрөмж                 8                     42                  
+газар                           8, 8, 8               4, 19, 23           
+банк                            8                     6                   
+зээл                            8, 8                  9, 26               
+төсөл                           8, 8                  14, 31              

@@ -1,0 +1,12 @@
+File: MNCLW00104.txt
+Search Method: Aho-Corasick
+Total runtime: 0.000221s
+Found terms: 7
+
+Term                            Line                  Word Place          
+
+албан татвар                    8, 9, 10              2, 27, 5            
+үйлчилгээ                       9                     12                  
+хуулийн этгээд                  10                    20                  
+газар                           10                    26                  
+мөрдөгч                         11                    15                  

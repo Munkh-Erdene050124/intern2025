@@ -1,0 +1,14 @@
+File: MNCLW00126.txt
+Search Method: Trie (MWE + Single-Word)
+Total runtime: 0.000277s
+Found terms: 8
+
+Term                            Line                  Word Place          
+
+албан татвар                    6, 7                  2, 42               
+газар                           7                     7                   
+сан                             7                     17                  
+зээл                            7                     23                  
+хэлэлцээр                       7                     24                  
+холбоо                          7                     36                  
+төсөл                           7                     37                  
