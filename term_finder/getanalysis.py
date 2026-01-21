@@ -1,62 +1,89 @@
 import sys
 import subprocess
-import shutil
 from pathlib import Path
 
 
-def run_for_file(target_file, idx, total, search_dir, output_root):
-    print(f"[{idx}/{total}] Processing {target_file}")
-
-    term_dir = output_root / f"term_occur{idx:05d}"
-    term_dir.mkdir(parents=True, exist_ok=True)
-
-    #AHO-CORASICK
-    aho_script = search_dir / "aho-search.py"
-    subprocess.run(
-        [sys.executable, str(aho_script), target_file],
-        cwd=str(search_dir),
-        timeout=300
-    )
-
-    # Move aho-output.txt
-    aho_out = output_root / "aho-output.txt"
-    if aho_out.exists():
-        shutil.move(str(aho_out), str(term_dir / "aho-output.txt"))
-    else:
-        print("WARNING: aho-output.txt not found")
-
-    #TRIE
-    trie_script = search_dir / "trie-search.py"
-    subprocess.run(
-        [sys.executable, str(trie_script), target_file],
-        cwd=str(search_dir),
-        timeout=300
-    )
-
-    # Move trie-output.txt
-    trie_out = output_root / "trie-output.txt"
-    if trie_out.exists():
-        shutil.move(str(trie_out), str(term_dir / "trie-output.txt"))
-    else:
-        print("WARNING: trie-output.txt not found")
-
-
 def main():
+    target_file = 'MNCLW00243.txt' 
+    if len(sys.argv) > 1:
+        target_file = sys.argv[1]
     script_dir = Path(__file__).parent
-    base_dir = script_dir.parent
-    law_dir = base_dir / "law_txt_files"
-    search_dir = script_dir / "search"
-    output_root = script_dir / "output"
+    search_dir = script_dir / 'search'
+    output_dir = script_dir / 'output'
+    
+    output_dir.mkdir(parents=True, exist_ok=True)
 
-    output_root.mkdir(parents=True, exist_ok=True)
+    aho_success = False
+    trie_success = False
+    
+    # Run Aho-Corasick search
+    try:
+        aho_script = search_dir / 'aho-search.py'
+        result = subprocess.run(
+            [sys.executable, str(aho_script), target_file],
+            cwd=str(search_dir),
+            capture_output=True,
+            text=True,
+            timeout=300
+        )
+        
+        # Display output
+        if result.stdout:
+            print(result.stdout)
+        
+        if result.returncode == 0:
+            aho_success = True
+        else:
+            print(f"Aho-Corasick search failed with return code {result.returncode}")
+            if result.stderr:
+                print(f"Error: {result.stderr}")
+                
+    except subprocess.TimeoutExpired:
+        print("Aho-Corasick search timed out")
+    except Exception as e:
+        print(f"Aho-Corasick search error: {e}")
+    
+    print()
+    
+    # Run Trie search
+    try:
+        trie_script = search_dir / 'trie-search.py'
+        result = subprocess.run(
+            [sys.executable, str(trie_script), target_file],
+            cwd=str(search_dir),
+            capture_output=True,
+            text=True,
+            timeout=300  # 5 minute timeout
+        )
+        
+        # Display output
+        if result.stdout:
+            print(result.stdout)
+        
+        if result.returncode == 0:
+            trie_success = True
+        else:
+            print(f"Trie search failed with return code {result.returncode}")
+            if result.stderr:
+                print(f"Error: {result.stderr}")
+                
+    except subprocess.TimeoutExpired:
+        print("Trie search timed out")
+    except Exception as e:
+        print(f"Trie search error: {e}")
+    
+    print()
+    print(f"Aho-Corasick Search: {'SUCCESS' if aho_success else ' FAILED'}")
+    print(f"Trie Search:         {'SUCCESS' if trie_success else ' FAILED'}")
+    print()
 
-    txt_files = sorted(law_dir.glob("MNCLW*.txt"))
-    total = len(txt_files)
-
-    print(f"Found {total} MNCLW files")
-
-    for idx, law_file in enumerate(txt_files, start=1):
-        run_for_file(law_file.name, idx, total, search_dir, output_root)
+    # Exit with status code
+    if aho_success and trie_success:
+        sys.exit(0)
+    elif aho_success or trie_success:
+        sys.exit(1)  # Partial success
+    else:
+        sys.exit(2)  # Complete failure
 
 
 if __name__ == "__main__":
