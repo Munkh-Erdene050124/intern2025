@@ -32,12 +32,12 @@ def main():
     print(f"Weight Mode: {args.weight_mode}")
     print(f"Output Dir: {output_dir}")
     
-    # 1. Load Dictionary
+    # Load Dictionary
     print("Loading dictionary...")
     term_to_id = sna_utils.load_dictionary(dict_path)
     print(f"Loaded {len(term_to_id)} terms from dictionary.")
     
-    # 2. Load Law Data
+    # Load Law Data
     # We need to map LawID -> {Term -> Count}
     # And Term -> Document Frequency (DF)
     law_term_counts = {} # law_id -> {term: count}
@@ -78,7 +78,7 @@ def main():
     num_docs = len(law_term_counts)
     print(f"\nProcessed {num_docs} laws with term data.")
     
-    # 3. Filter Terms & Precompute IDF
+    # Filter Terms & Precompute IDF
     # Filter stopwords (high DF)
     max_doc_count = num_docs * args.max_df
     
@@ -93,7 +93,7 @@ def main():
     
     print(f"Filtered terms (DF > {args.max_df:.2f}): Removed {len(term_doc_freq) - len(valid_terms)} terms. Kept {len(valid_terms)}.")
 
-    # 4. Build Graph
+    # Build Graph
     print(f"\nBuilding {args.weight_mode} graph...")
     G = nx.Graph()
     
@@ -161,7 +161,7 @@ def main():
     elapsed = time.time() - start_time
     print(f"Graph construction took {elapsed:.2f}s. Edges: {edges_added}")
     
-    # 5. Compute Metrics
+    # Compute Metrics
     print("\nComputing SNA metrics...")
     
     # Basic
@@ -195,10 +195,10 @@ def main():
             comp_id_map[node] = cid
             comp_size_map[node] = len(comp)
 
-    # 6. Output Generation
+    # Output Generation
     print("\nGenerating outputs...")
     
-    # 6.1 law_term_presence.tsv
+    # law_term_presence.tsv
     # law_id, term_id, leg_term, term_root, occurrences_count
     # Note: Dictionary has id, leg_term, desc, pos_tag, term_root.
     # We load dictionary to get term_id and term_root if possible. 
@@ -218,7 +218,6 @@ def main():
         for line in f:
             parts = line.strip().split('\t')
             if len(parts) >= 5:
-                # id(0), leg_term(1), ..., term_root(4)
                 full_term_meta[parts[1]] = {'id': parts[0], 'root': parts[4]}
     
     with open(output_dir / "law_term_presence.tsv", "w", encoding='utf-8') as f:
@@ -228,13 +227,13 @@ def main():
                 meta = full_term_meta.get(term, {'id': '?', 'root': '?'})
                 f.write(f"{lid}\t{meta['id']}\t{term}\t{meta['root']}\t{count}\n")
                 
-    # 6.2 law_network_edges.tsv
+    # law_network_edges.tsv
     with open(output_dir / "law_network_edges.tsv", "w", encoding='utf-8') as f:
         f.write("source_law\ttarget_law\tweight\tshared_terms_count\tshared_terms_sample\n")
         for u, v, data in G.edges(data=True):
             f.write(f"{u}\t{v}\t{data['weight']:.4f}\t{data['shared_count']}\t{data['shared_sample']}\n")
 
-    # 6.3 law_node_stats.tsv
+    # law_node_stats.tsv
     # law_id, terms_unique, degree, weighted_degree, betweenness, closeness, pagerank, component_id, component_size
     with open(output_dir / "law_node_stats.tsv", "w", encoding='utf-8') as f:
         f.write("law_id\tterms_unique\tdegree\tweighted_degree\tbetweenness\tcloseness\tpagerank\tcomponent_id\tcomponent_size\n")
@@ -250,7 +249,7 @@ def main():
             
             f.write(f"{node}\t{n_unique}\t{deg}\t{w_deg:.4f}\t{bet:.6f}\t{clo:.6f}\t{pr:.6f}\t{cid}\t{csize}\n")
             
-    # 6.4 law_network_summary.txt
+    # law_network_summary.txt
     summary_path = output_dir / "law_network_summary.txt"
     try:
         density = nx.density(G)
@@ -259,7 +258,6 @@ def main():
         
         with open(summary_path, "w", encoding='utf-8') as f:
             f.write("SNA Network Summary\n")
-            f.write("===================\n")
             f.write(f"Timestamp: {time.ctime()}\n")
             f.write(f"Weight Mode: {args.weight_mode}\n")
             f.write(f"Nodes: {G.number_of_nodes()}\n")
