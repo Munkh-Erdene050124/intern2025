@@ -1,0 +1,41 @@
+{% extends "index.html" %}{% block title %}DAS{% endblock %} {% block content %}
+<div class="w-full h-fit md:h-screen flex flex-col justify-start items-center px-2 md:px-20">
+    <div class="w-full mt-24 space-y-6">
+        <div>
+            {% if data.user.is_authenticated %}
+            <a
+                href="/doc_list"
+                class="flex w-24 md:w-32 justify-center rounded-md bg-business-color1 py-2 px-3 text-sm font-semibold text-white shadow-sm hover:bg-opacity-80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+            >
+                Буцах
+            </a>
+            {% else %}
+            <a
+                href="/upload-doc"
+                class="flex w-24 md:w-32 justify-center rounded-md bg-business-color1 py-2 px-3 text-sm font-semibold text-white shadow-sm hover:bg-opacity-80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+            >
+                Буцах
+            </a>
+            {% endif %}
+        </div>
+        <div class="w-full text-center lg:flex-auto lg:text-left">
+            <h2 class="text-3xl font-bold tracking-tight text-business-color1 sm:text-4xl">{{ data.file_name }}</h2>
+            <p class="mt-2 text-lg leading-8 text-business-color1 text-opacity-50">Дээрх файлын текст контентийг доор харуулж байна.</p>
+        </div>
+    </div>
+    <div class="w-full flex flex-col md:flex-row justify-content-between items-center gap-2 mb-3 md:mb-0">
+        <div class="w-full md:w-3/5 border-business-color1 border-2 rounded-md mt-3 p-2 text-business-color1 bg-business-color1 bg-opacity-5" style="overflow-y: scroll; height: 450px">{% include data.doc_html %}</div>
+        <div class="w-full md:w-2/5 border-business-color1 border-2 rounded-md mt-3 text-business-color1 bg-business-color1 bg-opacity-5" style="height: 450px">
+            <div class="w-full pl-2 h-7 border-none bg-business-color1 text-white">Хуулийн нэр томьёо ба холбогдох хуулиуд</div>
+            <div class="w-full p-2" style="overflow-y: scroll; height: calc(450px - 1.75rem)">
+                {% for lt in data.leg_terms %}
+                <div class="doc-legal-term w-full">
+                    <p class="w-fit text-left cursor-pointer text-business-color1 text-opacity-70 hover:text-opacity-100">{{ lt[0].upper() + lt[1:]}}</p>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    {% block progress_bar %}{% endblock %}
+</div>
+{% endblock %}

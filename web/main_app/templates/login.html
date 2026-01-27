@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+        <link href="{{url_for('static',filename='css/main.css')}}" rel="stylesheet" />
+        <link href="{{url_for('static',filename='images/das-logo.png')}}" rel="icon" />
+        <title>Нэвтрэх</title>
+    </head>
+    <body>
+        {% with messages = get_flashed_messages(with_categories=true) %} {% if messages %} {% for category, message in messages %} {% if category == 'error' %}
+        <div class="flex justify-between text-red-200 shadow-inner rounded-none bg-opacity-90 p-3 bg-red-600">
+            <p class="self-center">{{ message }}</p>
+            <strong class="text-xl align-center cursor-pointer alert-del">&times;</strong>
+        </div>
+        {% elif category == 'warning' %}
+        <div class="flex justify-between text-orange-200 shadow-inner rounded-none bg-opacity-90 p-3 bg-orange-600">
+            <p class="self-center">{{ message }}</p>
+            <strong class="text-xl align-center cursor-pointer alert-del">&times;</strong>
+        </div>
+        {% else %}
+        <div class="flex justify-between text-green-200 shadow-inner rounded-none bg-opacity-90 p-3 bg-green-600">
+            <p class="self-center">{{ message }}</p>
+            <strong class="text-xl align-center cursor-pointer alert-del">&times;</strong>
+        </div>
+        {%endif%} {% endfor %} {% endif %} {% endwith %}
+        <div class="flex h-screen">
+            <div class="flex flex-1 flex-col justify-center py-12 px-4 sm:px-6 lg:flex-none lg:px-20 xl:px-24">
+                <div class="mx-auto w-full max-w-sm lg:w-96">
+                    <div>
+                        <img class="h-12 w-auto cursor-pointer" src="{{url_for('static',filename='images/das-logo.png')}}" alt="Document Analysis System" onclick="goto_home()" />
+                        <h2 class="mt-6 text-3xl font-bold tracking-tight text-gray-900">Нэвтрэх хэсэг</h2>
+                    </div>
+
+                    <div class="mt-8">
+                        <div class="mt-6">
+                            <form method="POST" class="space-y-6" enctype="multipart/form-data">
+                                <div>
+                                    <label for="email" class="block text-sm font-medium leading-6 text-gray-900">И-мэйл хаяг</label>
+                                    <div class="mt-2">
+                                        <input
+                                            id="email"
+                                            name="email"
+                                            type="email"
+                                            autocomplete="email"
+                                            required
+                                            class="block w-full rounded-md border-0 py-1.5 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-business-color1 sm:text-sm sm:leading-6"
+                                        />
+                                    </div>
+                                </div>
+
+                                <div class="space-y-1">
+                                    <label for="password" class="block text-sm font-medium leading-6 text-gray-900">Нууц үг</label>
+                                    <div class="mt-2">
+                                        <input
+                                            id="password"
+                                            name="password"
+                                            type="password"
+                                            autocomplete="current-password"
+                                            required
+                                            class="block w-full rounded-md border-0 py-1.5 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-business-color1 sm:text-sm sm:leading-6"
+                                        />
+                                    </div>
+                                </div>
+
+                                <div class="flex items-center justify-between">
+                                    <div class="flex items-center">
+                                        <input id="remember-me" name="remember-me" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-business-color1 focus:ring-business-color1" />
+                                        <label for="remember-me" class="ml-2 block text-sm text-gray-900">Бүртгэл сануулах</label>
+                                    </div>
+
+                                    <div class="text-sm">
+                                        <a href="/forgot-pass" class="font-medium text-business-color2 hover:text-opacity-80">Нууц үг мартсан?</a>
+                                    </div>
+                                </div>
+
+                                <div>
+                                    <button
+                                        type="submit"
+                                        class="flex w-full justify-center rounded-md bg-business-color1 py-2 px-3 text-sm font-semibold text-white shadow-sm hover:bg-opacity-80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                                    >
+                                        Нэвтрэх
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="mt-6">
+                        <div class="relative">
+                            <div class="absolute inset-0 flex items-center">
+                                <div class="w-full border-t border-gray-300"></div>
+                            </div>
+                            <div class="relative flex justify-center text-sm">
+                                <span class="bg-white px-2 text-gray-500">Бүртгэл байхгүй бол? <a class="decoration-0 text-business-color1 hover:text-opacity-80 font-bold" href="/register">Бүртгүүлэх</a></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="relative hidden w-0 flex-1 lg:block bg-business-color1 bg-opacity-30">
+                <img class="absolute inset-0 h-full w-full object-cover blur-0" src="{{url_for('static',filename='images/undsen_huuli.jpg')}}" alt="undsen_huuli" />
+            </div>
+        </div>
+        <script type="text/javascript" src="{{url_for('static',filename='js/index.js')}}"></script>
+    </body>
+</html>

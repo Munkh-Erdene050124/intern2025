@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+        <link href="{{url_for('static',filename='css/main.css')}}" rel="stylesheet" />
+        <link href="{{url_for('static',filename='images/das-logo.png')}}" rel="icon" />
+        <title>Бүртгүүлэх</title>
+    </head>
+    <body>
+        {% with messages = get_flashed_messages(with_categories=true) %} {% if messages %} {% for category, message in messages %} {% if category == 'error' %}
+        <div class="flex justify-between text-red-200 shadow-inner rounded-none bg-opacity-90 p-3 bg-red-600">
+            <p class="self-center">{{ message }}</p>
+            <strong class="text-xl align-center cursor-pointer alert-del">&times;</strong>
+        </div>
+        {% elif category == 'warning' %}
+        <div class="flex justify-between text-orange-200 shadow-inner rounded-none bg-opacity-90 p-3 bg-orange-600">
+            <p class="self-center">{{ message }}</p>
+            <strong class="text-xl align-center cursor-pointer alert-del">&times;</strong>
+        </div>
+        {% else %}
+        <div class="flex justify-between text-green-200 shadow-inner rounded-none bg-opacity-90 p-3 bg-green-600">
+            <p class="self-center">{{ message }}</p>
+            <strong class="text-xl align-center cursor-pointer alert-del">&times;</strong>
+        </div>
+        {%endif%} {% endfor %} {% endif %} {% endwith %}
+        <div class="flex min-h-full flex-col justify-center items-center py-12 px-2 sm:px-6 lg:px-8">
+            <div class="sm:mx-auto sm:w-full sm:max-w-md">
+                <img class="mx-auto h-12 w-auto cursor-pointer" src="{{url_for('static',filename='images/das-logo.png')}}" alt="Document Analysis System" onclick="goto_home()" />
+                <h2 class="mt-6 text-center text-3xl font-bold tracking-tight text-gray-900">Бүртгэл үүсгэх</h2>
+            </div>
+            <div class="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
+                <div class="bg-white py-8 px-4 shadow-business-color2 shadow-md sm:rounded-lg sm:px-10">
+                    <form class="space-y-6" action="#" method="POST" enctype="multipart/form-data">
+                        <div>
+                            <label for="lname" class="block text-sm font-medium leading-6 text-gray-900">Овог*</label>
+                            <div class="mt-2">
+                                <input
+                                    id="lname"
+                                    name="lname"
+                                    type="text"
+                                    autocomplete="lname"
+                                    required
+                                    placeholder="Овог оруулах..."
+                                    class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-business-color1 sm:text-sm sm:leading-6"
+                                />
+                            </div>
+                        </div>
+                        <div>
+                            <label for="fname" class="block text-sm font-medium leading-6 text-gray-900">Нэр*</label>
+                            <div class="mt-2">
+                                <input
+                                    id="fname"
+                                    name="fname"
+                                    type="text"
+                                    autocomplete="fname"
+                                    required
+                                    placeholder="Нэр оруулах..."
+                                    class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-business-color1 sm:text-sm sm:leading-6"
+                                />
+                            </div>
+                        </div>
+                        <div>
+                            <label for="email" class="block text-sm font-medium leading-6 text-gray-900">И-мэйл хаяг*</label>
+                            <div class="mt-2">
+                                <input
+                                    id="email"
+                                    name="email"
+                                    type="email"
+                                    autocomplete="email"
+                                    required
+                                    placeholder="И-мэйл оруулах..."
+                                    class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-business-color1 sm:text-sm sm:leading-6"
+                                />
+                            </div>
+                        </div>
+
+                        <div>
+                            <label for="password" class="block text-sm font-medium leading-6 text-gray-900">Нууц үг*</label>
+                            <div class="mt-2">
+                                <input
+                                    id="password"
+                                    name="password"
+                                    type="password"
+                                    autocomplete="current-password"
+                                    required
+                                    placeholder="Нууц үг оруулах..."
+                                    class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-business-color1 sm:text-sm sm:leading-6"
+                                />
+                            </div>
+                        </div>
+
+                        <div>
+                            <label for="confirm_pass" class="block text-sm font-medium leading-6 text-gray-900">Нууц үг баталгаажуулах*</label>
+                            <div class="mt-2">
+                                <input
+                                    id="confirm_pass"
+                                    name="confirm_pass"
+                                    type="password"
+                                    autocomplete="current-confirm_pass"
+                                    required
+                                    placeholder="Нууц үг давтан оруулах..."
+                                    class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-business-color1 sm:text-sm sm:leading-6"
+                                />
+                            </div>
+                        </div>
+
+                        <div>
+                            <button
+                                type="submit"
+                                class="flex w-full justify-center rounded-md bg-business-color1 py-2 px-3 text-sm font-semibold text-white shadow-sm hover:bg-opacity-80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                            >
+                                Бүртгүүлэх
+                            </button>
+                        </div>
+                    </form>
+                    <div class="mt-6">
+                        <div class="relative">
+                            <div class="absolute inset-0 flex items-center">
+                                <div class="w-full border-t border-gray-300"></div>
+                            </div>
+                            <div class="relative flex justify-center text-sm">
+                                <span class="bg-white px-2 text-gray-500">Бүртгэлтэй бол? <a class="decoration-0 text-business-color1 hover:text-opacity-80 font-bold" href="/login">Нэвтрэх</a></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script type="text/javascript" src="{{url_for('static',filename='js/index.js')}}"></script>
+    </body>
+</html>

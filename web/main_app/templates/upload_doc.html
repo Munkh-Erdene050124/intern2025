@@ -1,0 +1,47 @@
+{% extends "index.html" %}{% block title %}DAS{% endblock %} {% block content %}
+<div class="w-full h-screen flex flex-col justify-center items-center px-2 md:px-20">
+    {% with messages = get_flashed_messages(with_categories=true) %} {% if messages %} {% for category, message in messages %} {% if category == 'error' %}
+    <div class="w-full flex justify-between text-red-200 shadow-inner rounded-lg bg-opacity-90 p-3 bg-red-600">
+        <p class="self-center">{{ message }}</p>
+        <strong class="text-xl align-center cursor-pointer alert-del">&times;</strong>
+    </div>
+    {% elif category == 'warning' %}
+    <div class="w-full flex justify-between text-orange-200 shadow-inner rounded-lg bg-opacity-90 p-3 bg-orange-600">
+        <p class="self-center">{{ message }}</p>
+        <strong class="text-xl align-center cursor-pointer alert-del">&times;</strong>
+    </div>
+    {% else %}
+    <div class="w-full flex justify-between text-green-200 shadow-inner rounded-lg bg-opacity-90 p-3 bg-green-600">
+        <p class="self-center">{{ message }}</p>
+        <strong class="text-xl align-center cursor-pointer alert-del">&times;</strong>
+    </div>
+    {%endif%}{% endfor %} {% endif %} {% endwith %}
+    <form class="mt-6 w-full space-y-6" method="POST" enctype="multipart/form-data">
+        <div class="w-full text-center lg:flex-auto lg:text-left">
+            <h2 class="text-3xl font-bold tracking-tight text-business-color1 sm:text-4xl">Баримт бичиг байршуулах хэсэг</h2>
+            <p class="mt-2 text-lg leading-8 text-business-color1 text-opacity-50">Та доорх файл upload хэсэгт өөрийн баримт бичгийн байршуулж, шинжилгээ хийх товч дарна уу.</p>
+        </div>
+        <label for="dropzone-file" class="flex flex-col items-center justify-center w-full h-64 border-2 border-business-color-default border-dashed rounded-lg cursor-pointer bg-business-color1 bg-opacity-70 hover:bg-opacity-60">
+            <div class="flex flex-col items-center justify-center pt-5 pb-6">
+                <svg aria-hidden="true" class="w-10 h-10 mb-3 text-business-color1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"></path>
+                </svg>
+                <p class="mb-2 text-sm text-business-color-default dark:text-business-color1"><span class="font-semibold text-business-color-default">Click to upload</span> or drag and drop</p>
+                <p class="mb-2 text-xs text-business-color-default dark:text-business-color1">TXT, PDF, DOC or DOCX (MAX. 20MB)</p>
+                <p class="text-base font-semibold text-business-color-default dark:text-business-color-default" id="uploaded"></p>
+            </div>
+            <input id="dropzone-file" type="file" name="upload_file" class="hidden" />
+        </label>
+        <div>
+            <button
+                id="analysis-doc"
+                type="submit"
+                onclick="start_analysis(this.id)"
+                class="flex w-36 md:w-40 justify-center rounded-md bg-business-color1 py-2 px-3 text-sm font-semibold text-white shadow-sm hover:bg-opacity-80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+            >
+                Шинжилгээ хийх
+            </button>
+        </div>
+    </form>
+</div>
+{% endblock %}

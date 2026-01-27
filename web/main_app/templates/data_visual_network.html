@@ -1,0 +1,26 @@
+{% extends "index.html" %}{% block title %}DAS{% endblock %} {% block content %}
+<link href="{{url_for('static',filename='css/matrix_graph.css')}}" rel="stylesheet" />
+<div class="flex mx-10 w-auto top-36 flex-col justify-center items-center" id="chart01" style="padding-top: 100px !important">
+    <p class="select">
+        Show Data as:
+        <select id="selectTemplate">
+            <option value="none">Simple Network Graph</option>
+            <option value="treemap">Clusters on a Treemap (Using Force in a Box Library)</option>
+            <option value="force">Clusters using Forces (Using Force in a Box Library)</option>
+        </select>
+    </p>
+</div>
+<div class="text-center" id="chart02">
+    <p class="select">
+        Order Data by:
+        <select id="order">
+            <option value="name">Character Name</option>
+            <option value="count">Number of Connections</option>
+            <option value="group">Group</option>
+        </select>
+    </p>
+</div>
+<script src="https://d3js.org/d3.v4.min.js"></script>
+<script type="module" src="{{url_for('static',filename='js/matrix_graph.js')}}"></script>
+<script type="text/javascript" src="{{url_for('static',filename='js/forceInABox.js')}}"></script>
+{% endblock %}
