@@ -1,0 +1,113 @@
+{% extends "index.html" %}{% block title %}SNA Analysis{% endblock %} {% block content %}
+<div class="w-full flex flex-col items-center px-2 md:px-20 py-10">
+    {% with messages = get_flashed_messages(with_categories=true) %} {% if messages %} {% for category, message in
+    messages %} {% if category == 'error' %}
+    <div class="w-full flex justify-between text-red-200 shadow-inner rounded-lg bg-opacity-90 p-3 bg-red-600 mb-6">
+        <p class="self-center">{{ message }}</p>
+        <strong class="text-xl align-center cursor-pointer alert-del">&times;</strong>
+    </div>
+    {% elif category == 'warning' %}
+    <div
+        class="w-full flex justify-between text-orange-200 shadow-inner rounded-lg bg-opacity-90 p-3 bg-orange-600 mb-6">
+        <p class="self-center">{{ message }}</p>
+        <strong class="text-xl align-center cursor-pointer alert-del">&times;</strong>
+    </div>
+    {% else %}
+    <div class="w-full flex justify-between text-green-200 shadow-inner rounded-lg bg-opacity-90 p-3 bg-green-600 mb-6">
+        <p class="self-center">{{ message }}</p>
+        <strong class="text-xl align-center cursor-pointer alert-del">&times;</strong>
+    </div>
+    {%endif%}{% endfor %} {% endif %} {% endwith %}
+
+    {% if not data.with_visualization %}
+    <form class="w-full space-y-6 max-w-4xl" method="POST" enctype="multipart/form-data">
+        <div class="w-full text-center lg:flex-auto lg:text-left">
+            <h2 class="text-3xl font-bold tracking-tight text-business-color1 sm:text-4xl">Хуулийн холбоо хамаарлын
+                график</h2>
+            <p class="mt-2 text-lg leading-8 text-business-color1 text-opacity-50">Олон хуулийн баримт бичгийг зэрэг
+                оруулан тэдгээрийн хоорондын хамаарлыг шинжлэх.</p>
+        </div>
+        <label for="dropzone-file"
+            class="flex flex-col items-center justify-center w-full h-48 border-2 border-business-color-default border-dashed rounded-lg cursor-pointer bg-business-color1 bg-opacity-10 hover:bg-opacity-20 transition-all">
+            <div class="flex flex-col items-center justify-center pt-5 pb-6">
+                <svg aria-hidden="true" class="w-10 h-10 mb-3 text-business-color1" fill="none" stroke="currentColor"
+                    viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12">
+                    </path>
+                </svg>
+                <p class="mb-2 text-sm text-business-color-default"><span class="font-semibold">Click to upload</span>
+                    or drag and drop</p>
+                <p class="mb-2 text-xs text-business-color-default">Select multiple TXT, PDF, DOCX files</p>
+                <p class="text-base font-bold text-business-color1" id="uploaded"></p>
+            </div>
+            <!-- Added 'multiple' attribute -->
+            <input id="dropzone-file" type="file" name="upload_file" class="hidden" multiple />
+        </label>
+        <div class="flex justify-center lg:justify-start">
+            <button id="analysis-doc" type="submit"
+                onclick="document.getElementById('loader-spinning').classList.remove('hidden');"
+                class="flex w-48 justify-center rounded-md bg-business-color1 py-3 px-4 text-sm font-semibold text-white shadow-sm hover:bg-opacity-90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 transition-all">
+                График үүсгэх
+            </button>
+        </div>
+    </form>
+    {% endif %}
+
+    {% if data.with_visualization %}
+    <div class="w-full flex flex-col justify-center items-center mt-10 mb-20">
+        <div class="w-full flex justify-between items-end mb-4">
+            <h3 class="text-2xl font-bold text-business-color1">Үр дүн</h3>
+            <a href="/law-network" class="text-sm text-business-color1 underline hover:text-business-color3">Шинэ хайлт
+                хийх</a>
+        </div>
+
+        <!-- Graph Container -->
+        <div class="w-full border rounded-lg shadow-lg bg-white relative" style="height: 800px;">
+            <label class="absolute top-4 left-4 z-10 flex items-center space-x-2 bg-white bg-opacity-80 p-2 rounded">
+                <input type="checkbox" id="checkShowTemplate" class="form-checkbox h-4 w-4 text-business-color1">
+                <span class="text-sm font-medium text-gray-700">Бүлэглэлийг харуулах</span>
+            </label>
+            <div class="absolute top-4 right-4 z-10">
+                <select id="selectTemplate"
+                    class="form-select block w-full border-gray-300 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
+                    <option value="none">None</option>
+                    <option value="force">Force</option>
+                    <option value="treemap">Treemap</option>
+                </select>
+            </div>
+            <div id="chart01" class="w-full h-full"></div>
+
+            <!-- Tooltip Container -->
+            <div id="graph-tooltip"
+                class="absolute hidden bg-black bg-opacity-80 text-white px-3 py-2 rounded text-sm pointer-events-none z-50">
+            </div>
+        </div>
+    </div>
+
+    <!-- D3 and Custom Scripts -->
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+    <script type="text/javascript" src="{{url_for('static',filename='js/forceInABox.js')}}"></script>
+    <script type="module" src="{{url_for('static',filename='js/law_network_graph.js')}}?v=1"></script>
+    {% endif %}
+</div>
+
+<script>
+    // Simple script to show selected file count
+    var input = document.getElementById('dropzone-file');
+    if (input) {
+        input.addEventListener('change', function (e) {
+            var count = e.target.files.length;
+            document.getElementById('uploaded').innerText = count > 0 ? count + " file(s) selected" : "";
+        });
+    }
+
+    // Alert close logic
+    var alerts = document.querySelectorAll('.alert-del');
+    alerts.forEach(function (btn) {
+        btn.addEventListener('click', function () {
+            this.parentElement.style.display = 'none';
+        });
+    });
+</script>
+{% endblock %}

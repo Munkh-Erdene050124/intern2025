@@ -16,7 +16,11 @@ import pandas as pd
 import shutil
 import json
 import os
+import shutil
+import json
+import os
 import io 
+import sys
 
 
 views = Blueprint('views', __name__)
@@ -63,6 +67,140 @@ def home():
 @views.route('/data-visual')
 def data_visual():
     return render_template('data_visual.html', data={'user': current_user, 'with_loading': True})
+
+
+@views.route('/law-network', methods=['GET', 'POST'])
+def law_network():
+    # Robust data loading check
+    global trie, df
+    if trie is None or df is None:
+        print("WARNING: Global trie/df is None in law_network view. Attempting reload...", file=sys.stderr)
+        try:
+            from . import load_global_data
+            load_global_data()
+            from . import trie, df # Re-import
+            if trie is None:
+                print("CRITICAL: Failed to reload trie.", file=sys.stderr)
+                flash('Системийн алдаа: Өгөгдөл ачааллаж чадсангүй.', 'error')
+                return render_template('law_network.html', data={'user': current_user, 'with_loading': False, 'with_visualization': False})
+        except Exception as e:
+            print(f"Error reloading globals: {e}", file=sys.stderr)
+            flash('Системийн алдаа.', 'error')
+            return render_template('law_network.html', data={'user': current_user, 'with_loading': False, 'with_visualization': False})
+
+    if request.method == 'POST':
+        upload_files = request.files.getlist('upload_file')
+        if not upload_files or upload_files[0].filename == '':
+            flash('Файл сонгогдоогүй байна.', 'error')
+            return render_template('law_network.html', data={'user': current_user, 'with_loading': False, 'with_visualization': False})
+
+        processed_data = {'nodes': [], 'links': []}
+        all_law_terms = {} # law_name -> count
+        doc_cooccurrences = [] # list of dicts: {'filename': str, 'laws': list}
+
+        print(f"Processing {len(upload_files)} files...", file=sys.stderr)
+
+        # Process each file
+        for file in upload_files:
+            if file and allowed_file(file.filename):
+                filename = secure_filename(file.filename)
+                print(f"Reading file: {filename}", file=sys.stderr)
+                text_content = ""
+                file_ext = get_file_ext(file.filename)
+                
+                try:
+                    if file_ext == 'txt':
+                        text_content = file.read().decode('utf-8', errors='ignore')
+                    elif file_ext in ['doc', 'docx']:
+                        # docx requires stream, ensure at start
+                        file.stream.seek(0)
+                        doc = docx.Document(file)
+                        text_content = "\n".join([p.text for p in doc.paragraphs])
+                    elif file_ext == 'pdf':
+                        # PyPDF2 reader
+                        file.stream.seek(0)
+                        # Check version or use generic approach
+                        if hasattr(PyPDF2, 'PdfReader'):
+                            reader = PyPDF2.PdfReader(file)
+                            for i in range(len(reader.pages)):
+                                text_content += reader.pages[i].extract_text() + "\n"
+                        else:
+                            reader = PyPDF2.PdfFileReader(io.BytesIO(file.read()))
+                            for i in range(reader.getNumPages()):
+                                text_content += reader.getPage(i).extractText() + "\n"
+                except Exception as e:
+                    print(f"Error reading {filename}: {e}", file=sys.stderr)
+                    continue
+
+                if not text_content:
+                    print(f"Warning: No text content extracted from {filename}", file=sys.stderr)
+                    continue
+
+                # Extract Terms reusing mwe_service
+                found_laws_in_doc = set()
+                
+                try:
+                    # Split huge text to chunks for mwe_service
+                    for chunk in mwe_service.str_to_word_lines(text_content, 300).split('\n'):
+                        if not chunk.strip(): continue
+                        # Ensure trie is valid list
+                        mwe_trie_obj = trie[0] if isinstance(trie, list) else trie
+                        word_trie_obj = trie[1] if isinstance(trie, list) and len(trie)>1 else None
+                        
+                        res = mwe_service.search_mwe(mwe_trie_obj, word_trie_obj, df, chunk)
+                        for term in res['found_mwe']:
+                            term_id = str(term['id'])
+                            term_name = term['leg_term']
+                            
+                            law_key = term_id
+                            found_laws_in_doc.add(law_key)
+                            
+                            if law_key not in all_law_terms:
+                                all_law_terms[law_key] = {'id': law_key, 'name': term_name, 'count': 0, 'group': 1}
+                            all_law_terms[law_key]['count'] += 1
+                except Exception as e:
+                    print(f"Error extracting terms from {filename}: {e}", file=sys.stderr)
+                    continue
+
+                if found_laws_in_doc:
+                    # Store filename with laws for edge attribution
+                    doc_cooccurrences.append({'filename': get_f_name(filename), 'laws': list(found_laws_in_doc)})
+
+        print(f"Found {len(all_law_terms)} unique laws across {len(doc_cooccurrences)} docs.", file=sys.stderr)
+
+        # Build Graph (Co-occurrence)
+        # Nodes
+        processed_data['nodes'] = list(all_law_terms.values())
+        
+        # Edges with document tracking
+        edge_data = {}  # key: "source-target", value: {'source', 'target', 'value', 'documents': []}
+        for doc_info in doc_cooccurrences:
+            laws = sorted(doc_info['laws'])
+            doc_name = doc_info['filename']
+            for i in range(len(laws)):
+                for j in range(i + 1, len(laws)):
+                    source = laws[i]
+                    target = laws[j]
+                    edge_key = f"{source}-{target}"
+                    if edge_key not in edge_data:
+                        edge_data[edge_key] = {'source': source, 'target': target, 'value': 0, 'documents': []}
+                    edge_data[edge_key]['value'] += 1
+                    edge_data[edge_key]['documents'].append(doc_name)
+        
+        processed_data['links'] = list(edge_data.values())
+
+        # Save to JSON
+        try:
+            json_path = os.path.join(app.root_path, 'static/data/current_law_network.json')
+            with open(json_path, 'w', encoding='utf-8') as f:
+                json.dump(processed_data, f, ensure_ascii=False)
+        except Exception as e:
+            print(f"Error saving JSON: {e}", file=sys.stderr)
+            flash('Error saving graph data.', 'error')
+            
+        return render_template('law_network.html', data={'user': current_user, 'with_loading': False, 'with_visualization': True})
+
+    return render_template('law_network.html', data={'user': current_user, 'with_loading': False, 'with_visualization': False})
 
 
 @views.route('/upload-doc', methods=['GET', 'POST'])
@@ -491,3 +629,54 @@ def links_csv():
     # links = pd.read_csv('main_app/static/data/links.csv')
     links = pd.read_csv('main_app/static/data/test_links.csv')
     return links.to_csv()
+
+
+@views.route('/api/upload-nodes')
+def upload_nodes_csv():
+    # Read from the JSON created by /law-network
+    json_path = os.path.join(app.root_path, 'static/data/current_law_network.json')
+    if not os.path.exists(json_path):
+        return "id,group,count\n", 200 # Empty CSV
+        
+    with open(json_path, 'r', encoding='utf-8') as f:
+        data = json.load(f)
+        
+    # Convert nodes to CSV format expected by D3
+    # required: id, group, count (for radius), name (for label)
+    nodes = data.get('nodes', [])
+    if not nodes:
+        return "id,group,count\n", 200
+
+    output = io.StringIO()
+    # Manual CSV writing to ensure correct headers
+    output.write("id,group,count,name\n")
+    for n in nodes:
+        # Sanitize name
+        name = n.get('name', '').replace(',', ' ').replace('\n', ' ')
+        output.write(f"{n.get('id')},{n.get('group', 1)},{n.get('count', 1)},{name}\n")
+        
+    return output.getvalue(), 200, {'Content-Type': 'text/csv'}
+
+
+@views.route('/api/upload-links')
+def upload_links_csv():
+    json_path = os.path.join(app.root_path, 'static/data/current_law_network.json')
+    if not os.path.exists(json_path):
+        return "source,target,value,documents\n", 200
+        
+    with open(json_path, 'r', encoding='utf-8') as f:
+        data = json.load(f)
+        
+    links = data.get('links', [])
+    if not links:
+        return "source,target,value,documents\n", 200
+
+    output = io.StringIO()
+    output.write("source,target,value,documents\n")
+    for l in links:
+        docs = l.get('documents', [])
+        docs_str = '; '.join(docs) if docs else ''
+        output.write(f"{l.get('source')},{l.get('target')},{l.get('value', 1)},\"{docs_str}\"\n")
+        
+    return output.getvalue(), 200, {'Content-Type': 'text/csv'}
+
