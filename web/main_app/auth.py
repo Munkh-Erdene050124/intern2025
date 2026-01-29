@@ -36,7 +36,7 @@ def sign_up():
             flash('Нууц үгнүүд таарахгүй байна.', category='error')
         else:
             new_user = User(email=email.lower(), fname=fname, lname=lname,
-                            password=generate_password_hash(password, method='pbkdf2:sha256'))
+                            password=generate_password_hash(password))
             db.session.add(new_user)
             db.session.commit()
             login_user(new_user, remember=True)

@@ -220,15 +220,29 @@ def is_match(slt, idx, con_wrd):
 
 
 # def search_mwe(trie, df, txt, base_url='http://10.0.70.62:8080/nlp-web-demo/process?text='):
-def search_mwe(mwe_trie, word_trie, df, txt, base_url='http://172.104.34.197/nlp-web-demo/process?text='):
+# def search_mwe(mwe_trie, word_trie, df, txt, base_url='http://172.104.34.197/nlp-web-demo/process?text='):
+from flask import current_app
+
+def search_mwe(mwe_trie, word_trie, df, txt):
     found_mwe = []
     mwe_arr_index = []
-    res = requests.get(base_url+txt)
-    if res.status_code != 200:
-        print(res.status_code)
-        return found_mwe
-    soup = BeautifulSoup(res.text, "html.parser")
-    res_arr = json.loads(soup.text)
+    
+    # Use config-driven URL or fallback
+    if current_app:
+        base_url = current_app.config.get('NLP_URL', "http://speech.mn:8081/nlp-web-demo/process")
+    else:
+        # Fallback for offline testing/scripts
+        base_url = "http://speech.mn:8081/nlp-web-demo/process"
+
+    try:
+        res = requests.get(base_url, params={'text': txt}, timeout=(3.05, 10))
+        res.raise_for_status()
+        res_arr = res.json()
+    except Exception as e:
+        print(f"NLP Service Error: {e}")
+        # Valid fallback structure: list of lists of word objects
+        words = txt.split()
+        res_arr = [[{'word': w, 'lemma': w, 'posTag': 'NM', 'id': i} for i, w in enumerate(words)]]
 
     word_list = []
     for sentence in res_arr:
